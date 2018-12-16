@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>历史消息</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div onclick="go()"><img src="images/lf.png" alt=""></a></div>
+            <p>历史消息</p>
+        </div>
+        <div class="hnHd">
+            <ul>
+                <!--<li>
+                    <div class="hnTo">
+                        <div class="hntTop">
+                            <p>123</p>
+                            <span>456</span>
+                        </div>
+                        <div class="hntCot">
+                            <textarea name="" id="textarea" ></textarea>
+                        </div>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <script>
+          var companyId = localStorage.getItem('companyId')
+        console.log(companyId)
+          $.ajax({
+             type: "GET",
+             url: baseURL+"/announcement/getAnnouncementByCompanyId/"+companyId,
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {companyId:companyId}, 
+             success: function(data){
+             console.log(data,111)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += `<li>
+                    <div class="hnTo">
+                        <div class="hntTop">
+                            <p>${data.data[i].title}</p>
+                            <span>${getDate(data.data[i].pushTime)}</span>
+                        </div>
+                        <div class="hntCot">
+                            <textarea  id="textarea" >${data.data[i].message}</textarea>
+                        </div>
+                    </div>
+                </li>`
+                    }
+                $('.hnHd ul ').html(html);
+                console.log(html,123)
+                      }
+         });
+
+    </script>    
+</body>
+</html>

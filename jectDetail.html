@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项目详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="wrap1">
+        <div class="wTop">
+            <div class="left" onclick="go()"><img src="images/lf.png" alt=""></div>
+            <p>项目详情</p>
+        </div>
+        <div class="total">
+                <!--<div class="addHd">
+                        <img id="Img" src="images/aj.jpg" alt="">
+                    </div>
+                    <div class="addCot">
+                        <ul>
+                            <li>
+                                <p>项目名称:</p>
+                            </li>
+                            <li>
+                                <p>项目负责人:</p>
+                            </li>
+                            <li>
+                                <p>客户业务:</p>
+                            </li>
+                            <li>
+                                <p>业务动态</p>
+                            </li>
+                        </ul>
+                    </div>-->
+        </div>
+    </div> 
+    <script>
+	 		 var companyId = localStorage.getItem('companyId')
+              var customerId = localStorage.getItem('customerId')
+              console.log(companyId,customerId)
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/customer/getCustomerByCustomerId/"+customerId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {companyId:companyId,customerId:customerId}, 
+                success: function (data) {
+                    console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = ` <div class="addHd">
+            <img id="Img" src="${data.data.imagePath}" alt="">
+        </div>
+        <div class="addCot">
+            <ul>
+                <li>
+                    <p>项目名称:${data.data.projectName}
+                </li>
+                <li>
+                    <p>项目负责人:${data.data.projectManager}
+                </li>
+                <li>
+                    <p>客户业务:${data.data.businessMessage}
+                </li>
+                <li>
+                    <p>业务动态:</p>${data.data.status}
+                </li>
+            </ul>
+        </div>`
+                    }
+                $('.total').html(html);	
+                },
+            });
+
+    </script>
+</body>
+</html>

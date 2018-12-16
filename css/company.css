@@ -1,0 +1,270 @@
+
+.companyHd{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.companyHd .Top{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background: #33ccff;
+}
+.companyHd .Top .topT{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.companyHd .Top .search{
+    position: relative;
+    top: 5px;
+    left: -90%;
+}
+.companyHd .Top .search img{
+   width:22px;
+   height: 22px;
+}
+.companyHd .Top .topT input{
+    width: 85%;
+    height: 35px;
+    outline: none;
+    border: transparent;
+    text-indent: 50px;
+    border-radius: 30px;
+    margin: 5px 0;
+}
+.companyHd .Top .topT img{
+    width: 26px;
+    height: 25px;
+    margin: 8px 0;
+}
+.companyHd .companyTop{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 50px;
+    background:#33ccff;
+}
+.companyHd .companyTop p{
+    width: 65px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 2px solid #fff;
+    font-size: 16px;
+    color: #FFF;
+}
+.companyHd .companyTop #staff,.companyHd .companyTop #dynamic{
+    border-bottom: 2px solid #000;
+    color: #000;
+
+}
+
+.foot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:53px;
+    background: #fff;
+ }
+ .foot ul {
+     overflow: hidden;
+ }
+ .foot ul li{
+     float: left;
+     box-sizing: border-box;
+     width: 25%;
+     text-align: center;
+ }
+ .foot ul li img{
+     width: 30px;
+     height: 30px;
+ }
+ .foot ul li p{
+     font-size: 14px;
+     color: #333;
+ }
+/*  客户管理 */
+.companyHd{
+    height: 93vh;
+    background: #f4f4f4;
+}
+.companyHd .costomer{
+    /*display: none;*/
+    width: 90%;
+    margin: 20px auto 0;
+}
+.companyHd .costomer ul .list{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+	box-shadow: 0px 2px 5px 2px 
+		rgba(34, 23, 20, 0.1);
+    border-radius: 44px;
+    margin-bottom: 10px;
+}
+.companyHd .costomer ul .list div{
+    padding: 20px 30px;
+}
+.companyHd .costomer ul .list .cLeft ul li{
+   display: flex;
+}
+.companyHd .costomer ul .list .cLeft p{
+    font-size:17px;
+    color: #333;
+}
+.companyHd .costomer ul .list .cLeft .in{
+    font-size:17px;
+    color: #0033ff;
+}
+.companyHd .costomer ul .list .cRight {
+    margin-top: 40px;
+}
+.companyHd .costomer ul .list .cRight button{
+    width: 80px;
+    height: 30px;
+    box-shadow: 0px 2px 5px 2px 
+		rgba(51, 204, 255, 0.4);
+    border-radius: 29px;
+    outline: none;
+    border: transparent;
+    background: #33ccff;
+    color: #fff;
+    font-size:14px;
+}
+/* 员工管理  */
+.companyHd .staff{
+  display: none;
+}
+.companyHd .staffTop{
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0px 3px 5px 0px 
+		rgba(34, 23, 20, 0.13);
+    border-radius: 20px;
+    font-size:16px;
+    color: #333;
+}
+.companyHd .staffTop .top{
+    padding-top: 10px;
+    border-bottom: 1px solid #f4f4f4;
+    text-align: center;
+}
+.companyHd .staffTop .top span{
+    font-size:12px;
+    color: #666;
+ }
+ .companyHd .staffTop .bot {
+     padding: 10px 0;
+ }
+ .companyHd .staffTop .bot p{
+    margin-top: 10px;
+    text-indent: 20px;
+ }
+ .companyHd .staffTop .bot span{
+    color: #33ccff;
+   font-size: 14px;
+   margin-left: 70%;
+   transform: translateX(-80%)
+ }
+ .companyHd .staffCot ul{
+     width: 100%;
+     background: #fff;
+     margin: 10px 0;
+ }
+ .companyHd .staffCot ul li{
+     display: flex;
+     justify-content: space-between;
+   width: 90%;
+   height: 50px;
+   line-height: 50px;
+   margin: 0 auto;
+   border-bottom: 1px solid #f4f4f4;
+   font-size: 16px;
+   color: #333;
+ }
+ .companyHd .staffCot ul li img{
+     width: 8px;
+     height: 18px;
+ }
+ .companyHd .staffBot {
+     margin: 10px;
+     float: right;
+     width: 100px;
+     height: 30px;
+     line-height: 30px;
+     text-align: center;
+     background: #33ccff;
+ }
+ .companyHd .staffBot a{
+  font-size: 16px;
+  color: #000;
+ }
+/* 公司动态 */
+.companyHd .dynamic{
+display: none;
+}
+.companyHd .dynamic .dynamicTop{
+    margin: 10px 0 0 0;
+}
+.companyHd .dynamic .dynamicTop button{
+    width:100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background: #fff;
+    outline: none;
+    border-radius: 33px;
+    border: solid 1px #626262;
+    margin-left: 20px;
+}
+.companyHd .dynamic .dynamiCot ul li{
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #ffffff;
+	box-shadow: 0px 4px 21px 0px 
+		rgba(4, 0, 0, 0.2);
+}
+.companyHd .dynamic .dynamiCot ul li .left{
+    width: 77px;
+	height: 77px;
+    margin-right: 30px;
+}
+.companyHd .dynamic .dynamiCot ul li .left img{
+  height: 100%;
+	  width: 100%;
+	border-radius: 20px;
+}
+/*自建部门*/
+.departPage{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.departPage .departTop{
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.departPage .departTop .departTolao{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.departPage .departTop .departTolao img{
+    width: 15px;
+    height: 20px;
+    margin: 15px 0;
+}
+.departPage .departTop .departTolao span{
+    font-size: 16px;
+}
+.departPage .departCot{
+    
+}

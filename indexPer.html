@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>咨询网络宣传</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.11&key=afd119caa78a57c8340a89cac406b5a0&plugin=AMap.CitySearch"></script>
+    <style type="text/css">
+        html,
+        body,
+        #container {
+            height: 100%;
+        }
+
+        .info {
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-top: 6px;
+            border-radius: .25rem;
+            background-color: white;
+            border-width: 0;
+            box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+        }
+
+        .info p {
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="top">
+            <div class="topT"><input type="text" id="search" placeholder="找公司，找产品">
+                <div class="info">
+                    <p id='info'></p>
+                </div>
+                <div class="search"><img src="images/search.jpg" alt=""></div>
+            </div>
+        </div>
+        <div id="container" style="display:none"></div>
+
+        <div class="content">
+            <ul>
+                <li id="note"><img src="images/2.jpg" alt="">
+                    <p>代理记账</p>
+                </li>
+                <!--<li id="int"><img src="images/3.jpg" alt="">
+                    <p>网络宣传</p>
+                </li>-->
+                <li id="law"><img src="images/4.jpg" alt="">
+                    <p>法律咨询</p>
+                </li>
+                <li id="com"><a href="guidancePer.html"><img src="images/5.jpg" alt="">
+                        <p>公司辅导</p>
+                    </a></li>
+                <li id="interaction"><img src="images/6.jpg" alt="">
+                    <p>公司互动</p>
+                </li>
+                <li id="infomation"><img src="images/7.jpg" alt="">
+                    <p>人脉互动</p>
+                </li>
+                <li id="person"><img src="images/8.jpg" alt="">
+                    <p>行业信息</p>
+                </li>
+            </ul>
+        </div>
+        <!--中间可变动的-->
+        <!--网络宣传-->
+        <!--<div class="change">
+            <ul>
+                <li>
+                    <div class="left">
+                        <img src="images/500493639.jpg" alt="">
+                    </div>
+                    <div class="right">
+                        <p>CIBC of Canada</p>
+                        <span>加拿大帝国商业银行发展历史自
+                            1867年</span>
+                        <a href="">点击观看</a>
+                    </div>
+                </li>
+            </ul>
+        </div>-->
+        <!--法律咨询-->
+        <div class="lawPage">
+            <div class="law">
+                <ul>
+                   <!-- <li>
+                        <div class="left"><img src="images/400527639.png" alt=""></div>
+                        <div class="right"><span>12231</span>
+                            <p>223321</p><i>123112</i>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+
+        <!--代理记账-->
+        <div class="ledger">
+            <div class="lePage">
+                <div class="ledgerTop">
+                    <p>明细</p>
+                </div>
+                <div class="ledgerBot">
+                    <ul>
+                        <!-- <li>
+                            <div class="bT">
+                                <p>5445456</p>
+                                <p>454546</p>
+                            </div>
+                            <div class="bB">
+                                <div class="bBleft"><img src="images/1.png" alt=""><span></span></div>
+                                <p>支出:</p>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="Foot">
+                    <a href="note.html">记一笔</a>
+                </div>
+            </div>
+
+
+        </div>
+        <!--公司互动-->
+        <div class="interaction">
+            <div class="interPage">
+                <ul>
+                    <!--<li class="interList">
+                        <div class="totle">
+                            <div class="interTop">
+                                <div><img src="images/1.png" alt=""></div>
+                                <div>
+                                    <p>陌上浅笑</p><span>12122123</span>
+                                </div>
+                            </div>
+                            <div class="interText">
+                                <p>周五晚上公司组织聚餐活动，每个人都必须出席，聚
+                                    会地址是老地点，希望大家相互转告。
+                                </p>
+                            </div>
+                            <div class="interImg">
+                                <ul>
+                                    <li><img src="images/500299093.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="interFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <!--人脉互动-->
+        <div class="contact">
+            <div class="contactPage">
+                <ul>
+                    <!--<li class="contactList">
+                        <div class="totle">
+                            <div class="contactTop">
+                                <div class="left">
+                                    <div><img src="images/1.png" alt=""></div>
+                                    <div>
+                                        <p>陌上浅笑</p><span>12122123</span>
+                                    </div>
+                                </div>
+                                <div class="right"><a href=""><img src="" alt=""><span>报名</span></a> </div>
+                            </div>
+                            <div class="contactText">
+                                <p>周五晚上公司组织聚餐活动，每个人都必须出席，聚
+                                    会地址是老地点，希望大家相互转告。
+                                </p>
+                            </div>
+                            <div class="contactImg">
+                                <ul>
+                                    <li><img src="images/500299093.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="contactFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <div class="cFoot">
+                <a href="connectDetal.html"><img src="images/plan.jpg" alt=""></a>
+            </div>
+        </div>
+        <!--行业信息-->
+        <div class="infomation">
+            <div class="infoPage">
+                <ul>
+                    <!-- <li>
+                        <div class="ifLeft"><img src="images/500493639.jpg" alt=""></div>
+                        <div class="ifRight">
+                            <p>我部将于2018年11月1号开始
+                                启动跨海大桥建设：标志着我
+                                于2018年11月1号开始我部将于2018年11月1号开始
+                                部将于2018年11月1号开始部将于2018年11月1号开始
+                            </p>
+                        </div>
+                    </li>-->
+                </ul>
+
+            </div>
+        </div>
+        <!--底部-->
+        <div class="foot">
+            <ul>
+                <li><a href="indexPer.html"><img src="images/zy.jpg" alt="">
+                        <p>资源</p>
+                    </a>
+                </li>
+                <li><a href="companyPer.html"><img src="images/company.jpg" alt="">
+                        <p>公司</p>
+                    </a>
+                </li>
+                <li><a href="addresPer.html"><img src="images/tx.jpg" alt="">
+                        <p>通讯</p>
+                    </a>
+                </li>
+                <li><a href="myPer.html"><img src="images/my.jpg" alt="">
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        //地图
+        var map = new AMap.Map("container", {
+            resizeEnable: true,
+            center: [116.397428, 39.90923],
+            zoom: 13
+        });
+        //获取用户所在城市信息
+        function showCityInfo() {
+            //实例化城市查询类
+            var citysearch = new AMap.CitySearch();
+            //自动获取用户IP，返回当前城市
+            citysearch.getLocalCity(function (status, result) {
+                if (status === 'complete' && result.info === 'OK') {
+                    if (result && result.city && result.bounds) {
+                        var cityinfo = result.city;
+                        var citybounds = result.bounds;
+                        document.getElementById('info').innerHTML = cityinfo;
+                        //地图显示当前城市
+                        map.setBounds(citybounds);
+                    }
+                } else {
+                    document.getElementById('info').innerHTML = result.info;
+                }
+            });
+        }
+        showCityInfo();
+        //搜索
+        $(".search").click(() => {
+            console.log(11);
+            $.ajax({
+                type: "post",
+                url: baseURL + "/company/getCompanyByKey",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {
+                    "key": $("#search").val(),
+                    "city": $(".info").innerHTML
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+
+            });
+        })
+        var companyId = localStorage.getItem('companyId')
+        console.log(companyId)
+        //代理笔记显示
+        $("#note").click(function () {
+            $(".ledger").show()
+            $(".change").hide()
+            $(".lawPage").hide()
+            $(".interaction").hide()
+            $(".contact").hide()
+            $(".infomation").hide()
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/charge/getCurrentUserCharge",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += ` <li>
+                            <div class="bT">
+                                <p>${getDate(data.data[i].createTime).split(" ")}</p>
+                                <p>${data.data[i].introduce}</p>
+                            </div>
+                            <div class="bB">
+                                <div class="bBleft"><img src="images/1.png" alt=""><span>${data.data[i].name}</span></div>
+                                <p>${data.data[i].type}:${data.data[i].price}</p>
+                            </div>
+                        </li>`
+                    }
+                    $('.ledgerBot ul ').html(html);
+                    console.log(html, 123)
+                },
+            });
+        })
+        //网络宣传
+       /* $("#int").click(function () {
+            $(".change").show()
+            $(".ledger").hide()
+            $(".lawPage").hide()
+            $(".interaction").hide()
+            $(".contact").hide()
+            $(".infomation").hide()
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/video/getAllCompanyVideo",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += ` <li>
+                    <div class="left">
+                        <img src="images/500493639.jpg" alt="">
+                    </div>
+                    <div class="right">
+                        <p>CIBC of Canada</p>
+                        <span>加拿大帝国商业银行发展历史自
+                            1867年</span>
+                        <a href="">点击观看</a>
+                    </div>
+                </li>`
+                    }
+                    $('.change ul ').html(html);
+                    console.log(html, 123)
+
+                },
+
+
+            });
+        })*/
+        //法律咨询
+        $("#law").click(function () {
+            $(".change").hide()
+            $(".ledger").hide()
+            $(".lawPage").show()
+            $(".interaction").hide()
+            $(".contact").hide()
+            $(".infomation").hide()
+            $.ajax({
+                type: "POST",
+                url: baseURL + "/companyTutor/getLaw",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{
+                     "city": $(".info").innerHTML,
+                },
+                success: function (data) {
+
+                    // console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        for (var j in data.data[i]){
+                            console.log(data.data[i],111)
+                        console.log(data.data[i][j],222)
+                        html += `  <li onclick="chat()">
+                        <div class="left"><img src="${data.data[i][j].avatar}" alt=""></div>
+                        <div class="right"><span>${data.data[i][j].userName}</span>
+                            <p>${data.data[i][j].sex}</p><i>${data.data[i][j].address}</i>
+                        </div>
+                    </li>`
+                        }
+                       
+                    }
+                    $('.law ul ').html(html);
+                    console.log(html, 123)
+                },
+            });
+        })
+        function chat() {
+            window.location.href = "chat1.html"
+        }
+        //r人脉互动
+        $("#infomation").click(function () {
+            $(".change").hide()
+            $(".ledger").hide()
+            $(".lawPage").hide()
+            $(".interaction").hide()
+            $(".contact").show()
+            $(".infomation").hide()
+             fn()
+        })
+        //进来先请求
+        function fn() {
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/personTalkMsg/getAllPersonTalkMsg",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += ` <li class="contactList" onclick="swatch2()">
+                        <div class="totle">
+                            <div class="contactTop">
+                                <div class="left">
+                                    <div><img src="${data.data[i].fromCompany.avatar}" alt=""></div>
+                                    <div>
+                                        <p>${data.data[i].fromCompany.companyName}</p><span>${getLocalTime(data.data[i].pushTime)}</span>
+                                    </div>
+                                </div>
+                                <div class="right"><a href=""><img src="" alt=""><span>报名</span></a> </div>
+                            </div>
+                            <div class="contactText">
+                                <p>${data.data[i].message}</p>
+                            </div>
+                            <div class="contactImg">
+                                <ul>
+                                    <li><img src="${data.data[i].imagePath}" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="contactFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>`
+                    }
+                    $('.contactPage ul ').html(html);
+                   // console.log(html, 123)
+                    //储存
+                    localStorage.setItem('personTalkMsgId', data.data[i].personTalkMsgId)
+                    //获取id
+                    var personTalkMsgId = localStorage.getItem('personTalkMsgId')
+                    console.log(personTalkMsgId)
+                },
+            }); 
+        }
+        fn()
+        function swatch2() {
+            window.location.href = "contDetail.html"
+        }
+        //行业信息
+        $("#person").click(function () {
+            $(".change").hide()
+            $(".ledger").hide()
+            $(".lawPage").hide()
+            $(".interaction").hide()
+            $(".contact").hide()
+            $(".infomation").show()
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/businessMessage/getAllBusinessMessage",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    //console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i].images[0])
+                        html += ` <li onclick="swatch()">
+                        <div class="ifLeft"><img src="${data.data[i].images[0].imagePath}" alt=""></div>
+                        <div class="ifRight">
+                            <p>${data.data[i].message}</p>
+                        </div>
+                    </li> `
+                    }
+                    $('.infoPage ul ').html(html);
+                    //console.log(html, 123)
+                    //储存
+                    localStorage.setItem('businessMessageId ', data.data[i].businessMessageId)
+                    //获取公司id
+                    var businessMessageId = localStorage.getItem('businessMessageId ')
+                    console.log(businessMessageId)
+                }
+            });
+        })
+        function swatch() {
+            window.location.href = "hy-detail.html"
+        }
+        //公司互动
+        $("#interaction").click(function () {
+            $(".change").hide()
+            $(".ledger").hide()
+            $(".lawPage").hide()
+            $(".interaction").show()
+            $(".contact").hide()
+            $(".infomation").hide()
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/companyTalkMsg/getAllCompanyTalkMsg",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data, 123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += ` <li class="interList" onclick="swatch1()">
+                        <div class="totle">
+                            <div class="interTop">
+                                <div><img src="${data.data[i].fromCompany.avatar}" alt=""></div>
+                                <div>
+                                    <p>${data.data[i].fromCompany.companyName}</p><span>${getLocalTime(data.data[i].pushTime)}</span>
+                                </div>
+                            </div>
+                            <div class="interText">
+                                <p>${data.data[i].message}</p>
+                            </div>
+                            <div class="interImg">
+                                <ul>
+                                    <li><img src="${data.data[i].imagePath}" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="interFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>`
+                    }
+                    $('.interPage ul ').html(html);
+                    console.log(html, 123)
+                    //储存
+                    localStorage.setItem('companyTalkMsgId', data.data[i].companyTalkMsgId)
+                    //获取公司id
+                    var companyTalkMsgId = localStorage.getItem('companyTalkMsgId')
+                    console.log(companyTalkMsgId)
+                },
+            });
+        })
+        function swatch1() {
+            window.location.href = "ciDetail.html"
+        }
+    </script>
+</body>
+
+</html>

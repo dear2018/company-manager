@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/company.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+
+<body>
+    <div class="companyHd">
+        <div class="Top">
+            <div class="topT"><input type="text"  id="search" placeholder="找公司，找产品"><img src="images/link.jpg" alt="">
+                <div class="search"><img src="images/search.jpg" alt=""></div>
+            </div>
+        </div>
+        <div class="companyTop">
+            <p id="costomer">客户管理</p>
+            <p id="staff">员工管理</p>
+            <p id="dynamic">公司动态</p>
+        </div>
+        <!--客户管理-->
+        <div class="costomer">
+            <ul>
+               <!-- <li class="list">
+                    <div class="cLeft">
+                        <ul>
+                            <li>
+                                <p>项目名称:</p><span></span>
+                            </li>
+                            <li>
+                                <p>总负责人:</p><span></span>
+                            </li>
+                            <li>
+                                <p>业务动态:</p><span class="in"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cRight">
+                        <button>查看详情</button>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <!--员工管理-->
+        <div class="staff">
+            <div class="staffTop">
+                <!--<div class="top">
+                    <p>12232</p>
+                    <span>122323</span>
+                </div>
+                <div class="bot">
+                    <p>7月15日，早上八点开会，诸位务必准时！</p>
+                    <span>《查看详情》</span>
+                </div>-->
+            </div>
+            <div class="staffCot">
+                <ul>
+                    <li>
+                        <p>员工打卡</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                    <li>
+                        <p>员工状态</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                    <li>
+                        <p>员工申请</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <p>全部员工 ()</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                    <li>
+                        <p>商务部 ()</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                    <li>
+                        <p>财务部 ()</p>
+                        <div><img src="images/rr.jpg" alt=""></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="staffBot">
+                <a href="depart.html">自建部门</a>
+            </div>
+        </div>
+        <!--公司动态-->
+        <div class="dynamic">
+            <div class="dynamicTop">
+                <button id="button">发布动态</button>
+            </div>
+            <div class="dynamiCot">
+                <ul>
+                   <!--<li>
+                        <div class="left"><img src="" alt=""></div>
+                        <div class="right">
+                            <p></p>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="foot">
+                <ul>
+                    <li><a href="index.html"><img src="images/zy.jpg" alt="">
+                        <p>资源</p></a> 
+                    </li>
+                    <li><a href="company.html"><img src="images/company.jpg" alt="">
+                        <p>公司</p></a> 
+                    </li>
+                    <li><a href="addres.html"><img src="images/tx.jpg" alt="">
+                        <p>通讯</p></a> 
+                    </li>
+                    <li><a href="my.html"><img src="images/my.jpg" alt="">
+                        <p>我的</p></a> 
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <script>
+
+        //搜索
+ 			$("#search").keyup(function(e){
+                 console.log(11);
+                 var keycode=e.keyCode;
+                 var searchName=$(this).val()
+                 console.log(keycode,searchName);
+                if(keycode==='13'){
+                    e.preventDefault()
+                    	/*$.ajax({
+	 				type:"post",
+	 				url:baseURL+"/company/getCompanyByKey",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+						"key":$("#search").val()
+					},
+					success:function(data){
+						console.log(data);			
+				}
+ 				});*/
+                }
+            })
+ 			
+        //客户管理
+        var companyId = localStorage.getItem('companyId')
+        var customerId = localStorage.getItem('customerId')
+        console.log(companyId,customerId)
+     $("#costomer").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#staff").css("color","#000");
+        $("#staff").css("border-bottom","2px solid #000")
+        $("#dynamic").css("color","#000");
+        $("#dynamic").css("border-bottom","2px solid #000")
+            $(".costomer").show()
+            $(".staff").hide()
+            $(".dynamic").hide()
+           guanli();
+        })
+        function watch() {
+            window.location.href="jectDetail.html"
+        }
+         //员工管理
+     $("#staff").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#costomer").css("color","#000");
+        $("#costomer").css("border-bottom","2px solid #000")
+        $("#dynamic").css("color","#000");
+        $("#dynamic").css("border-bottom","2px solid #000")
+            $(".staff").show()
+            $(".costomer").hide()
+            $(".dynamic").hide()
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/announcement/getAnnouncementByCompanyId/"+companyId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    //console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        //console.log(data.data[i])
+                        html = `<div class="top">
+                    <p>${data.data[i].title}</p>
+                    <span>${data.data[i].pushTime}</span>
+                </div>
+                <div class="bot" onclick="look()">
+                    <p>${data.data[i].message}</p>
+                    <span>《查看详情》</span>
+                </div>`
+                    }
+                $('.staffTop ').html(html);
+                //console.log(html,123)
+                //储存
+                localStorage.setItem('announcementId  ', data.data[i].announcementId )
+                    //获取公司id
+                //var announcementId  = localStorage.getItem('announcementId  ')
+                //console.log(announcementId )
+                },
+            });
+        })
+        function guanli() {
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/customer/getCustomerByCompanyId/"+companyId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{
+                    companyId:companyId,
+                    customerId:customerId
+                },
+                success: function (data) {
+                   // console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += `  <li class="list">
+                    <div class="cLeft">
+                        <ul>
+                            <li>
+                                <p>项目名称:</p><span>${data.data[i].projectName}</span>
+                            </li>
+                            <li>
+                                <p>总负责人:</p><span>${data.data[i].projectManager}</span>
+                            </li>
+                            <li>
+                                <p>业务动态:</p><span class="in">${data.data[i].status}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cRight">
+                        <button id="butt" onclick="watch()">查看详情</button>
+                    </div>
+                </li>`
+                    }
+                $('.costomer ul ').html(html);
+                //console.log(html,123)
+
+                },
+            });
+        }
+        guanli();
+        function look() {
+            window.location.href="newDetail.html"
+        }  
+       //公司动态
+     $("#dynamic").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#costomer").css("color","#000");
+        $("#costomer").css("border-bottom","2px solid #000")
+        $("#staff").css("color","#000");
+        $("#staff").css("border-bottom","2px solid #000")
+            $(".dynamic").show()
+            $(".staff").hide()
+            $(".costomer").hide()
+                $.ajax({
+                type: "GET",
+                url: baseURL + "/companyDynamicMessage/getCompanyDynamicMessageByCompanyId/"+companyId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{companyId:companyId},
+                success: function (data) {
+                      console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html += `  <li onclick="send()">
+                        <div class="left"><img src="${data.data[i].imagePath}" alt=""></div>
+                        <div class="right">
+                            <p>${data.data[i].message}</p>
+                        </div>
+                    </li>`
+                    }
+                $('.dynamiCot ul ').html(html);
+                console.log(html,123)
+                        //储存
+			 localStorage.setItem('dynamicMessageId',data.data[i].dynamicMessageId)
+                },
+
+
+            });
+        })
+     $("#button").click(function(){
+         window.location.href="companyDetail.html"
+     })
+     function send(){
+        window.location.href="dynamicD.html"
+     }
+    </script>
+</body>
+
+</html>

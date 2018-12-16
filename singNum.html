@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>人脉报名</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <div class="top">
+            <div><img src="images/lf.png" alt=""></div>
+            <p>报名</p>
+        </div>
+        <div class="singPage">
+            <ul>
+               <!-- <li>
+                    <div class="singLeft">
+                       <div><img src="images/1.png" alt=""></div> 
+                        <span>1122</span>
+                    </div>
+                    <div class="signRight">
+                        <p id="agree">同意申请</p>
+                        <p id="refuse">拒绝申请</p>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <script>
+        	$.ajax({
+	 				type:"GET",
+	 				url:baseURL+"/personTalkMsg/getSignUpOrder",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+			
+					},
+					success:function(data){
+                        console.log(data);
+                        var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = ` <li>
+                    <div class="singLeft">
+                       <div><img src="${data.data[i].fromCompany.avatar}" alt=""></div> 
+                        <span>${data.data[i].fromCompany.userName}</span>
+                    </div>
+                    <div class="signRight">
+                        <p id="agree" onclick="send1()">同意申请</p>
+                        <p id="refuse" onclick="send2()">拒绝申请</p>
+                    </div>
+                </li>`
+                    }
+                $('.singPage ul').html(html);
+                console.log(html,123)
+                        //储存
+			 localStorage.setItem('personTalkMsgOrderId',data.data[i].personTalkMsgOrderId)		
+				}
+                 });
+             var personTalkMsgOrderId = localStorage.getItem('personTalkMsgOrderId')
+			 console.log(personTalkMsgOrderId) 
+                function send1() {
+                    console.log(1)
+                    var status=1;
+                    $.ajax({
+	 				type:"POST",
+	 				url:baseURL+"/personTalkMsg/dealSignUpOrder",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+                      status:status,
+                      personTalkMsgOrderId:personTalkMsgOrderId
+					},
+					success:function(data){
+                        console.log(data); 
+				}
+ 				});    
+                }
+                function send2() {
+                    console.log(2)
+                    var status=2;
+                    $.ajax({
+	 				type:"POST",
+	 				url:baseURL+"/personTalkMsg/dealSignUpOrder",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+                      status:status,
+                      personTalkMsgOrderId:personTalkMsgOrderId
+					},
+					success:function(data){
+                        console.log(data); 
+				}
+ 				});    
+                }
+               
+
+                
+    </script>
+</body>
+</html>

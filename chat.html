@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="js/x_rem.js"></script>
+</head>
+<body>
+        <div class="wrap">
+                <div class="top">
+                    <div onclick="go()"><img src="images/lf.png" alt=""></a></div>
+                    <p>好友</p>
+                </div>
+                <div class="message">
+                    <div class="send">
+                        <div class="time">07/15 08:06</div>
+                        <div class="msg">
+                            <img src="images/1.png" alt="" />
+                            <p><i class="msg_input"></i>我是从400年前穿越过来的！</p>
+                        </div>
+                    </div>
+                    <div class="show">
+                        <div class="time">07/15 08:08</div>
+                        <div class="msg">
+                            <img src="images/1.png" alt="" />
+                            <p><i clas="msg_input"></i>你是在逗我吗，都敏俊兮？</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatFoot">
+                    <div class="Footer">
+                       <textarea  id="" ></textarea>
+                        <button>发送</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <script>
+            (()=>{
+                var faccid;
+			faccid = GetQueryString('mobilePhone') == null? GetQueryString('jmobile') : GetQueryString('mobilePhone');
+			console.log(faccid);
+			console.log(GetQueryString('jmobile'));
+			console.log(GetQueryString('mobilePhone'));
+			//加好友
+		 	$.ajax({
+		 		type:"post",
+				url:BaseURL+"/im/addFriend",
+			 	contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+				xhrFields: {
+		           withCredentials: true
+		       	},
+		       	data:{
+		       		"faccid":faccid,
+		       		"type":1
+		       	},
+		       success:function(data){
+		       	console.log(data);
+		       }
+		 	})
+            })
+            /*发送消息*/
+function send(headSrc,str){
+	var html="<div class='send'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*接受消息*/
+function show(headSrc,str){
+	var html="<div class='show'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*更新视图*/
+function upView(html){
+	$('.message').append(html);
+	$('body').animate({scrollTop:$('.message').outerHeight()-window.innerHeight},200)
+}
+function sj(){
+	return parseInt(Math.random()*10)
+}
+$(function(){
+	$('.footer').on('keyup','input',function(){
+		if($(this).val().length>0){
+			$(this).next().css('background','#114F8E').prop('disabled',true);
+		}else{
+			$(this).next().css('background','#ddd').prop('disabled',false);
+		}
+	})
+	$('.footer p').click(function(){
+		if($(this).prev().val().length>0){
+			show("images/.2.png",$(this).prev().val());
+			test();
+			$(this).prev().val('');
+			$(this).css('background','#ddd').prop('disabled',false);
+		}
+	})
+})
+
+/*测试数据*/
+var arr=['사랑해요','천송이'];
+var imgarr=['images/touxiang.png','images/touxiangm.png'];
+
+function test(){
+	$(arr).each(function(i){
+		setTimeout(function(){
+			send("images/2.png",arr[i])
+		},sj()*500)
+	})
+}
+            </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页</title>
+    <link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/resize.css">
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <script src="js/jquery.js"></script>
+	 <script src="js/tool.js"></script>
+	 <script src="https://unpkg.com/notie"></script>
+	 <script type="text/javascript"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101527814" charset="utf-8"></script>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="cot">
+            <div class="cotTop">
+                <p id=company>公司登录</p>
+                <p id="person">员工登录</p>
+            </div>
+            <div class="cotBot">
+                <ul>
+                    <li><div><img src="images/username.png" alt=""></div><div><input type="text" placeholder="请输入用户名" id="username"></div> </li>
+                    <li><div><img src="images/password.png" alt=""></div><div><input type="password" placeholder="请输入您的密码" id="password"></div> </li>
+                </ul>
+            </div>
+            <div class="cotFoot">
+                <a href="register.html">没有账号去注册</a><a href="bcpassword.html">忘记密码</a>
+            </div>
+            <div class="cotBut">
+                <button id="login">登录</button>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footTop">
+                <i></i><p>第三方</p><i></i>
+            </div>
+            <div class="footBot">
+                <ul>
+                    <li><img src="images/qq.png" alt="" id="qq"></li>
+                    <li><a href="http://k6t2kr.natappfree.cc/open/wxLogin"><img src="images/weixin.png" alt="" id="weixin"></a></li>
+                    <li><img src="images/weibo.png" alt="" id="sinaweibo"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+		var isCompany=true;
+    $("#company").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#person").css("color"," #000")
+        $("#person").css("border-bottom","2px solid #000")
+		isCompany=true;
+		$(".foot").hide()
+    })  
+    $("#person").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#company").css("color"," #000")
+		$("#company").css("border-bottom","2px solid #000")
+		$(".foot").show()
+		isCompany=false;
+    }) 
+    
+        //登录
+    $('#login').click(function(){
+		var mobilePhone =$("#username").val()
+			 //储存电话
+			 localStorage.setItem('mobilePhone',mobilePhone)
+        var password=$("#password").val()
+        console.log(mobilePhone,password)
+        if (mobilePhone==="") {
+				notie.alert({type: 'warning', text: '用户名不能为空', position: 'top' })
+				return;
+            }
+        if (password==="") {
+			notie.alert({type: 'warning', text: '密码不能为空', position: 'top' })
+			return;
+			}
+		if (isCompany===true) {
+			$.ajax({
+             type: "POST",
+             url: baseURL+"/company/login",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {mobilePhone:mobilePhone, password:password}, 
+             success: function(data){
+             console.log(data,111)
+             window.location.href="index.html"
+                      }
+         });
+		}else{
+			$.ajax({
+             type: "POST",
+             url: baseURL+"/user/login",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {mobilePhone:mobilePhone, password:password}, 
+             success: function(data){
+             console.log(data,111)
+			 window.location.href="indexPer.html"
+			
+					  }
+         });
+		}
+			
+	});
+
+
+	
+	
+//第三方登录
+	/*$("#weixin").click(function () {
+		console.log(2)
+		$.ajax({
+             type: "GET",
+             url: baseURL+"/open/wxLogin",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             success: function(data){
+             console.log(data,111)
+			
+			
+					  }
+         });
+	})
+	$("#sinaweibo").click(function () {
+		console.log(1)
+		$.ajax({
+             type: "GET",
+             url: baseURL+"/open/qqLogin",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             success: function(data){
+             console.log(data,111)
+			
+			
+					  }
+         });
+	})
+   /*var tyindex=0;
+	
+   $('#qq').click(function(){
+			console.log("qq");
+			tyindex=1;
+			authLogin('qq');
+		})
+	$('#weixin').click(function(){
+			console.log("微信");
+			tyindex=2;
+			authLogin('weixin');
+		})
+	$('#sinaweibo').click(function () {
+		console.log("微博");
+			tyindex=3;
+			authLogin('sinaweibo');
+	})
+		// 登录操作
+		function authLogin(type) {
+			var s;
+			for (var i = 0; i < auths.length; i++){
+				if (auths[i].id == type){
+					s = auths[i];
+					break;
+				}
+			}
+			if(!s.authResult) {
+				s.login(function(e) {
+					notie.alert({type: 'warning', text: '登陆成功认证', position: 'top' })
+					authUserInfo(type);
+				}, function(e) {
+					notie.alert({type: 'warning', text: '登陆认证失败', position: 'top' })
+				});
+			} else {
+				notie.alert({type: 'warning', text: '已经登陆成功', position: 'top' })
+			}
+		}
+		//注销
+		function authLogout() {
+			for (var i in auths) {
+				var s = auths[i];
+				if (s.authResult) {
+					s.logout(function(e) {
+						console.log("注销登录认证成功！");
+					}, function(e) {
+						console.log("注销登录认证失败！");
+					});
+				}
+			}
+		}
+		// 微信登录认证信息
+		function authUserInfo(type) {
+			var s;
+			for (var i = 0; i < auths.length; i++){
+				if (auths[i].id == type) {
+					s=auths[i];
+					break;
+				}
+			}
+			if (!s.authResult) {
+				notie.alert({type: 'warning', text: '未登录成功', position: 'top' })
+			} else {
+//		昵称/头像/性别/openid
+				s.getUserInfo(function(e) {
+					console.log(JSON.stringify(s));
+					var kks=JSON.parse(JSON.stringify(s));
+					//获取opendid
+					var opendids=kks.authResult.openid;
+					var datask={
+						openID:opendids,
+						type:tyindex
+					}
+					console.log(tyindex);
+					ajaxGet("third/party/login",'post',datask,function(data){
+						console.log(JSON.stringify(data));
+						if(data.status==200){//登录成功返回token
+							localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+							window.location.href="../home/home.html";
+							console.log(data.data);//保存token,跳转首页
+						}else if(data.status==300){//跳转绑定页面
+							console.log("去绑定");
+							if(tyindex==1){//QQ
+								var information={
+									nickname:kks.userInfo.nickname,//昵称
+									gender:kks.userInfo.gender,//性别
+									openid:opendids,//opendid
+									portrait:kks.userInfo.figureurl_qq_2,//头像
+									type:tyindex
+								}
+								localStorage.setItem('grxs', JSON.stringify(information));
+								window.location.href="binding.html";
+							}else if(tyindex==2){//微信
+								var information={
+									nickname:kks.userInfo.nickname,//昵称
+									gender:kks.userInfo.sex,//性别
+									openid:opendids,//opendid
+									portrait:kks.userInfo.headimgurl,//头像
+									type:tyindex
+								}
+								console.log(kks.userInfo.nickname);//昵称
+								console.log(sex);//性别
+								console.log(opendids);//opendid
+								console.log(kks.userInfo.headimgurl);//头像
+								localStorage.setItem('grxs', JSON.stringify(information));
+								window.location.href="binding.html";
+							}else{//微博
+								var sex="";
+								if(kks.userInfo.gender=="m"){
+									sex="男";
+								}else{
+									sex="女";
+								}
+								var information={
+									nickname:kks.userInfo.nickname,//昵称
+									gender:sex,//性别
+									openid:opendids,//opendid
+									portrait:kks.userInfo.headimgurl,//头像
+									type:tyindex
+								}
+								console.log(kks.userInfo.nickname);//昵称
+								console.log(sex);//性别
+								console.log(opendids);//opendid
+								console.log(kks.userInfo.headimgurl);//头像
+								localStorage.setItem('grxs', JSON.stringify(information));
+								window.location.href="binding.html";
+							}
+						}else{
+							console.log("错误");
+						}
+					},function(err){
+						console.log(err);
+						console.log(JSON.stringify(err));
+					})
+					authLogout();
+				}, function(e){
+					alert("获取用户信息失败：" + e.message + " - " + e.code);
+				});
+			}
+		}
+		/*$("#login_reg").click(function(){//一键注册
+			window.location.href="registered.html";
+		})*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+.wrap{
+   background-image: url('../images/login.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+ .top{
+    width: 100%;
+    height: 104px;
+    padding: 80px 0 150px;
+    }
+.top img{
+    display: block;
+    width:82px;
+    height: 104px;
+    margin: 0 auto;
+}
+.cot{
+    width:60%;
+    margin: 0  auto;
+}
+.cot .cotTop{
+    display: flex;
+}
+.cot .cotTop p{
+        width: 50%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        text-align: center;
+        color: #000;
+        border-bottom: 2px solid #000;
+}
+.cot .cotTop #company{
+    color: #ffffff;
+    border-bottom: 2px solid #fff;
+}
+.cot .cotBot ul li{
+   display: flex;
+   width: 100%;
+   height: 35px;
+   line-height: 35px;
+   background-color: #cccccc;
+	box-shadow: 0px 3px 5px 0px 
+		rgba(34, 23, 20, 0.85);
+    opacity: 0.38;
+    margin-top: 32px;
+}
+.cot .cotBot ul .in img{
+    width: 20px;
+    height: 26px;
+    margin: 6px 10px;
+}
+.cot .cotBot ul li img{
+    width: 25px;
+    height: 26px;
+    margin: 6px 10px;
+}
+.cot .cotBot ul li input{
+    outline:none;
+    border: transparent;
+    height: 25px;
+    width: 70%;
+    line-height: 25px;
+    background-color: #0000;
+}
+.cot .cotBot ul .on .ver{
+    width: 50%;
+   
+}
+.cot .cotBot ul .on .ver input{
+    width: 100%;
+   
+}
+.cot .cotBot ul li span{
+    font-size: 12px;
+    color: #000;
+}
+.cot .cotFoot{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.cot .cotFoot a{
+    font-family: PingFang-SC-Regular;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.cot .cotFoot .on{
+    font-family: PingFang-SC-Regular;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #33ccff;
+}
+.cot .cotBut{
+    width: 80%;
+    margin: 0 auto;
+}
+.cot .cotBut button{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #3399ff;
+	box-shadow: 0px 3px 5px 0px 
+		rgba(34, 23, 20, 0.85);
+	border-radius: 31px;
+    opacity: 0.78;
+    outline: none;
+    border:transparent;
+    font-family: PingFang-SC-Regular;
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.foot{
+    display: none;
+    width: 80%;
+    margin: 40px auto 50px;
+}
+.foot .footTop{
+    display: flex;
+    justify-content: center;
+    
+}
+.foot .footTop i{
+   margin-top: 10px;
+    width: 80px;
+	height: 1px;
+	background-color: #333333;
+    opacity: 0.35;
+    
+}
+.foot .footTop p{
+    font-family: PingFang-SC-Regular;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+    opacity: 0.47;    
+    
+}
+.foot .footBot{
+    width: 80%;
+    margin: 35px auto 0;    
+}
+.foot .footBot ul{
+    display: flex;
+    justify-content: space-between;
+}
+.foot .footBot ul li{
+    width: 33%;
+    text-align: center;
+    box-sizing: border-box;
+    
+}
+.foot .footBot ul li img{
+    width: 44px;
+    height: 44px;
+}
+/* 公司认证页面 */
+.nextPage{
+    width: 100%;
+    height: 100vh;
+}
+.nextPage .nTop{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #3399ff;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+}
+.nextPage .nextCot ul{
+    width: 100%;
+   background: #fff;
+}
+.nextPage .nextCot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    border-bottom: solid 1px #eeeeee;
+    color: #333;
+    font-size:16px; 
+}
+.nextPage .cop{
+     width: 15px;
+     height: 20px;
+     padding: 10px 0;
+}
+.nextPage .copList{
+    display: none;
+}
+.nextPage .copList ul{
+    background: #fff;
+}
+.nextPage .copList ul li{
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f4f4f4;
+}
+.nextPage ,.copList ul li p{
+    font-size: 15px;
+    color: #333
+}
+.nextPage .cop img{
+    display: block;
+    width: 15px;
+    height: 20px;
+}
+.nextCot input{
+    width: 60%;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin-top: 5px;
+}
+.nextCot input::placeholder{
+    color: #999;
+}
+.nextPage .in{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+.nextPage .in #File{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+}
+.nextPage .in #hImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}  
+.nextPage .in span{
+    color: #999;
+}
+.nextPage .in img{
+    width: 15px;
+    height: 20px;
+    padding-top: 5px;
+}
+.nextPage .on{
+    position: relative;
+}
+.nextPage #up{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+}
+.nextPage .on img{
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+.nextBot{
+    width: 90%;
+    margin: 50px auto;
+}
+.nextBot .nextTop{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+   font-size: 18px;
+   color: #333;
+}
+.nextBot .nextImg{
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+.nextBot .nextImg img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.nextBot .nextImg #file{
+    position: absolute;
+    left: 0;
+    right:0 ;
+    top: 0;
+    bottom: 0;
+    margin:auto;
+    width: 80px;
+    height: 50px;
+    opacity: 0;
+}
+#nextFoot{
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #3399ff;
+    margin: 0 auto;
+    color: #fff;
+
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布人脉互动</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+        <div class="layout2">
+                <div class="top">
+                    <div><a href="index.html"><img src="images/lf.png" alt=""></a></div>
+                    <p>发布人脉互动</p>
+                    <span id="send">确定</span>
+                </div>
+                <div class="cdPage">
+                    <div class="cdTop">
+                        <textarea name="" id="message" placeholder="填写会议内容"></textarea>
+                        <div class="Upimg">
+                                <img src="images/photo.jpg" alt="" id="Img">
+                                <input type="file" id="File" onChange="selectImg(this,'Img')">
+                         </div>
+                    </div>
+                </div>
+        </div>
+        <script>
+                  function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image = replaceSrc;
+                    console.log(Image);
+		        }
+		        reader.readAsDataURL(file.files[0]);
+		       // base64Images.pust();
+	         
+            }
+            $("#send").click(function () {
+                console.log(1)
+                var message=$("#message").val()
+                $.ajax({
+             type: "POST",
+             url: baseURL+"/personTalkMsg/pushPersonTalkMsg",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {base64Images:Image+'。',message:message}, 
+             success: function(data){
+             console.log(data,111)
+            // window.location.href="my.html"
+            go()
+                      }
+         });
+
+            })
+        </script>
+</body>
+</html>

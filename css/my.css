@@ -1,0 +1,101 @@
+.myPage{
+ width: 100%;
+ height: 100vh;
+ background: #eee;
+}
+.myPage .myTop{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.myPage .myCot {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    background: #fff;
+}
+.myPage .myCot .cLeft, .myPage .myCot .cRight{
+    padding: 20px;
+}
+.myPage .myCot .cLeft{
+    display: flex;
+}
+.myPage .myCot .cLeft .lImg{
+    width: 63px;
+    height: 63px;
+    margin-right: 20px;
+}
+.myPage .myCot .cLeft .lImg img{
+    width:100%;
+    height:100%;
+}
+/*.myPage .myCot .cLeft .lR {
+    width: 50%;
+}*/
+.myPage .myCot .cLeft .lR p{
+    color: #333;
+    font-size: 20px;
+}
+.myPage .myCot .cLeft .lR span{
+    color: #999;
+    font-size:12px;
+}
+.myPage .myCot .cLeft .lR button{
+    width: 44px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    background: #fd7516;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    margin-left: 50px;
+}
+.myPage .myCot .cRight img{
+    width: 14px;
+    height: 22px;
+    margin-top: 20px;
+}
+.myPage .myFoot{
+    width: 100%;
+    height: 100vh;
+}
+.myPage .myFoot ul{
+ width: 100%;
+ background: #fff;
+}
+.myPage .myFoot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+    margin: 0 auto;
+    height:50px;
+    line-height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.myPage .myFoot .in{
+    display: flex;
+}
+.myPage .myFoot .in span{
+    color: #333;
+    font-size: 20px;
+}
+.myPage .myFoot .in img{
+  width: 25px;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.myPage .myFoot .on img{
+    width: 13px;
+    height: 20px;
+    margin: 12px 0;
+  }
+
+

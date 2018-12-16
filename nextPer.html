@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工认证</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="nextPage">
+        <div class="nTop">
+            <p>员工认证</p>
+        </div>
+        <div class="nextCot">
+            <ul>
+                <li><p>名称</p><input placeholder="请输入真实姓名" type="text" id="userName"></li>
+                <li><p>公司名称</p><input id="proname" type="text"> <div class="cop" onclick="pick()"><img  src="images/rr.jpg" alt=""></div></li>
+                <div class="copList">
+                        <ul>
+                            <!--<li><p>12</p></li>-->
+                        </ul>
+                </div>
+                <li><p>上传头像</p><div class="on"><img id="img" src="images/1.png" alt=""><input id="up" type="file" onChange="selectImg1(this,'img')"></div></li>                  
+                <li><p>入职时间</p><input placeholder="请输入日期" type="text" id="workTime"></li>
+                <li><p>身份证号</p><input placeholder="请输入身份证号" type="text" id="idCardNumber"></li>
+            </ul>
+        </div>
+        <div class="nextBot">
+            <div class="nextTop"><p>上传身份证</p></div>
+            <div class="nextImg"><img src="images/rzheng.jpg" alt="" id="Img"> <input id="file" type="file" onChange="selectImg(this,'Img')"></div>
+        </div>
+        <diV id="nextFoot">提交审核</diV>
+    </div>
+    <script>
+        var companyList = []
+        var companyId = ""
+        console.log(companyId)
+       function pick() {
+           $(".copList").show();
+           $.ajax({
+                type: "GET",
+                url: baseURL + "/company/getAllCompany",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    //公司列表赋值给全局属性，在别的地方也可以用，否则只能在这里使用，其他function无法使用
+                    companyList = data.data
+                    var html = "";
+                    for (var i in data.data) {
+                        //给没个li加一个标示
+                        html += `<li id=${i}><p>${data.data[i].companyName}</p></li> `
+                    }
+                    $('.copList ul ').html(html);
+                    $(".copList").on("click", "li", function(e){
+                        //点击li拿到点击的标签的标示，从列表里拿
+                        $("#proname").val(companyList[Number(e.currentTarget.id)].companyName)
+                        companyId = companyList[Number(e.currentTarget.id)].companyId
+                        console.log(companyId)
+                        localStorage.setItem('companyId',companyId)
+                    $(".copList").hide();
+                    });
+                },
+            });
+       }
+        //处理图片abse64
+        function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+                    Image = replaceSrc;
+		        }
+		        reader.readAsDataURL(file.files[0]);
+            }
+            //头像
+            //处理图片abse64
+        function selectImg1(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+                    Image1 = replaceSrc;
+                    console.log(Image1)
+		        }
+		        reader.readAsDataURL(file.files[0]);
+            }
+            $('#nextFoot').click(function(){
+                var userName =$("#userName").val()
+                var workTime=$("#workTime").val()
+                var idCardNumber=$("#idCardNumber").val()
+                console.log(userName,workTime,idCardNumber,companyId)
+                $.ajax({
+             type: "POST",
+             url: baseURL+"/user/perfectUserMessage",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {userName:userName,workTime:workTime,idCardNumber:idCardNumber,idCardImage:Image,companyId:companyId,avatarImage:Image1 }, 
+             success: function(data){
+             console.log(data,111)
+             window.location.href="login.html"
+                      }
+         });
+            })
+         
+    </script>
+</body>
+</html>

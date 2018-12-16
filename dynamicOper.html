@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+        <div class="layout1">
+                <div class="top">
+                    <div onclick="go()"><img src="images/lf.png" alt=""></div>
+                    <p>动态详情</p>
+                </div>
+                <div class="interaction">
+                        <div class="interPage">
+                            <ul>
+                               <!--<li class="interList">
+                                    <div class="totle">
+                                        <div class="interTop">
+                                            <div><img src="images/1.png" alt=""></div>
+                                            <div>
+                                                <p>陌上浅笑</p><span>12122123</span>
+                                            </div>
+                                        </div>
+                                        <div class="interText">
+                                            <p>周五晚上公司组织聚餐活动，每个人都必须出席，聚
+                                                会地址是老地点，希望大家相互转告。
+                                            </p>
+                                        </div>
+                                        <div class="interImg">
+                                            <ul>
+                                                <li><img src="images/500299093.jpg" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comment">
+                            <div class="commentTop"><p>评论</p></div>
+                        </div>
+                        <div class="conFoot">
+                            <div><input type="text" placeholder="写下评论吧..."><button>发送</button></div> 
+                    </div>
+              
+            </div>
+            <script>
+             //动态信息Id   
+             var dynamicMessageId = localStorage.getItem('dynamicMessageId')
+			 console.log(dynamicMessageId)
+             $.ajax({
+                type: "GET",
+                url: baseURL +"/companyDynamicMessage/getCompanyDynamicMessageByDynamicMessageId/"+dynamicMessageId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{dynamicMessageId:dynamicMessageId},
+                success: function (data) {
+                      console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = `<li class="interList">
+                                    <div class="totle">
+                                        <div class="interTop">
+                                            <div><img src="${data.data.avatar}" alt=""></div>
+                                            <div>
+                                                <p>${data.data.companyName}</p><span>${data.data.pushTime}</span>
+                                            </div>
+                                        </div>
+                                        <div class="interText">
+                                            <p>${data.data.message}</p>
+                                        </div>
+                                        <div class="interImg">
+                                            <ul>
+                                                <li><img src="${data.data.imagePath}" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>`
+                    }
+                $('.interPage ul ').html(html);
+                console.log(html,123)
+                },
+
+
+            });
+            </script>
+</body>
+</html>

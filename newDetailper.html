@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消息详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+        <div class="layout1">
+                <div class="top">
+                    <div onclick="go()"><img src="images/lf.png" alt=""></div>
+                    <p>消息详情</p>
+                    <span onclick="send()">历史消息</span>
+                </div>
+                <div class="ndePage">
+                   <!-- <div class="ndeTop">
+                        <p>45456</p>
+                        <span>45445</span>
+                    </div>
+                    <div class="ndeBot">
+                        <p>4</p>
+                    </div>-->
+                </div>      
+        </div>
+        <script>
+           function detail() {
+                var announcementId  = localStorage.getItem('announcementId  ')
+                console.log(announcementId )
+                $.ajax({
+                type: "GET",
+                url: baseURL +"/announcement/getAnnouncementByAnnouncementId/"+announcementId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{announcementId:announcementId},
+                success: function (data) {
+                      console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data)
+                        html = `<div class="ndeTop">
+                        <p>${data.data.title}</p>
+                        <span>${data.data.pushTime}</span>
+                    </div>
+                    <div class="ndeBot">
+                        <p>${data.data.message}</p>
+                    </div>`
+                    }
+                $('.ndePage').html(html);
+                console.log(html,123)
+                },
+            });
+            }
+        detail()
+            function send() {
+                window.location.href="histroyNew.html"
+            }
+        </script>
+</body>
+</html>

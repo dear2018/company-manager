@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>意见反馈</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="fHd">
+            <div class="fLeft"><div><img src="images/lf.png" alt=""></div><span>意见反馈</span></div>
+        </div>
+        <div class="FCot">
+            <ul>
+               <li><i></i><span>功能异常</span></li>
+               <li><i></i><span>产品建议</span></li>
+               <li><i></i><span>其他问题</span></li>
+            </ul>
+        </div>
+        <div class="fB"><P>请补充详细问题和意见</P></div>
+        <div class="fBot">
+            <div>
+                <textarea id="message"  placeholder="请描述一下你的问题"></textarea>
+                <div class="fImg">
+                    <img src="images/login.jpg" alt="" id="Img">
+                    <input type="file" id="File" onChange="selectImg(this,'Img')">
+                </div>
+                
+            </div>
+        </div>
+        <div class="fBut">
+           <button onclick="send()">提交</button>
+        </div>
+    </div>
+    <script>
+           function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image = replaceSrc;
+                    console.log(Image);
+		        }
+		        reader.readAsDataURL(file.files[0]);
+		       // base64Images.pust(); 
+            }
+        function send() {
+            var message =$("#message").val()
+            console.log(message)
+            $.ajax({
+             type: "POST",
+             url: baseURL+"/messageBack/pushMessageBack",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {base64:Image, message :message }, 
+             success: function(data){
+             console.log(data,111)
+             window.location.href="my.html"
+                      }
+         });
+        }
+    
+    </script>
+</body>
+  
+</html>

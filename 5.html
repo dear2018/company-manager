@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html>
+<head> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>jq实现点击添加和删除一行</title>
+
+<script src="js/jquery.js" type="text/javascript"></script> 
+<style>
+.box{
+    width: 100%;
+}
+.top{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #ccc;
+    font-size: 16px;
+}
+.bot ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #999;
+    border-bottom: 1px solid #f4f4f4;
+    color: #fff;
+}
+.add{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.botton{
+    display: none;
+    width: 100%;
+}
+.text{
+display: flex;
+ justify-content: space-between;
+  width: 90%;
+  height: 50px;
+  line-height: 50px;
+}
+.remover{
+    display: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="line">
+
+  <div>
+      <input type='button' id='add' value='加选项' />
+
+      <input type='button' id='minus' value='减选项'/>
+  </div>
+
+  <p><span></span><input type="text" name=""></p>
+
+</div>
+
+
+
+<div class="box">
+    <div class="top">全部员工</div>
+    <div class="bot">
+      <ul></ul>
+    </div>
+    <div class="add">添加部门</div>
+    <div class="botton"><div class="text"><input id="input" type="text"><button id="but">确定</button></div></div>
+    <div class="remover"><button id="qx">取消</button> <button id="qd">确定</button></div>
+</div>
+<script>
+$(".add").click(function () {
+    $(".botton").show()
+})
+$("#but").click(function () {
+    var text = $('input[id="input"]').val();
+$('<li>' + text + '</li>').appendTo($('.bot ul'));
+    $(".botton").hide()
+})
+$(".bot").on("click", "li", function(){
+    console.log(1)
+    $(".remover").show()             
+});
+$("#qd").click(function () {
+   $this.remove()
+   $(".remover").hide() 
+})
+
+
+
+ $("#add").click(function(){
+
+   var num =$("#line").children("p").length+1;
+
+   $("#line").append(`<p><span></span><input type="text" name=""></p>`);
+})
+ $("#minus").click(function(){
+
+  var length=$("#line").children("p").length;
+
+ if(length<2){
+
+    alert("至少保留一项");
+
+ }else{
+
+  $("#line").children("p:last-child").remove();
+
+ }
+
+});
+</script>
+
+</body>
+</html>

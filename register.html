@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="https://unpkg.com/notie"></script>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+                <img src="images/logo.png" alt="">
+        </div>
+        <div class="cot">
+            <div class="cotTop">
+                <p id="company">公司注册</p>
+                <p id="person">员工注册</p>
+            </div>
+            <div class="cotBot">
+                <ul>
+                    <li><div class="in"><img src="images/phone.png" alt=""></div><div><input type="text" placeholder="请输入用户名" id="username"></div> </li>
+                    <li class="on"><div><img src="images/yz.png" alt=""></div><div class="ver"><input type="text" placeholder="请输入验证码" id="verfiy"></div> <span id="msg">获取验证码</span></li>
+                    <li><div><img src="images/password.png" alt=""></div><div><input type="password" placeholder="6~16位数字字母符号组合" id="password"></div> </li>
+                </ul>
+            </div>
+            <div class="cotFoot">
+                <a href="login.html" class="on">已有账号，去登录</a>
+            </div>
+            <div class="cotBut">
+                <button  id="register">下一步</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var isCompany=true;
+        $("#company").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#person").css("color"," #000")
+        $("#person").css("border-bottom","2px solid #000")
+         isCompany=true;
+            })
+         $("#person").click(function () {
+        $(this).css("color","#fff");
+        $(this).css("border-bottom","2px solid #fff")
+        $("#company").css("color"," #000")
+        $("#company").css("border-bottom","2px solid #000")
+        isCompany=false;
+    }) 
+     
+    $('#register').click(function(){
+        var mobilePhone =$("#username").val()
+    var password=$("#password").val()
+    var verfiy=$("#verfiy").val()
+    console.log(mobilePhone,password,verfiy)
+        if (mobilePhone==="") {
+            notie.alert({type: 'warning', text: '用户名不能为空', position: 'top' })
+				return;    
+            }
+        if (verfiy==="") {
+            notie.alert({type: 'warning', text: '验证码不能为空', position: 'top' })
+				return;
+            }    
+        if (password==="") {
+            notie.alert({type: 'warning', text: '密码不能为空', position: 'top' })
+				return;
+            }
+        if (isCompany===true) {
+            $.ajax({
+             type: "POST",
+             url:  baseURL+"/company/register",
+            //跨域问题
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {"mobilePhone":mobilePhone, "password":password}, 
+             success: function(data){
+                 console.log(data)
+                 window.location.href="nextReg.html"
+ 
+            }
+         });
+        }else{
+            $.ajax({
+             type: "POST",
+             url:  baseURL+"/user/register",
+            //跨域问题
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {"mobilePhone":mobilePhone, "password":password}, 
+             success: function(data){
+                 console.log(data)
+                 window.location.href="nextPer.html"
+            }
+         });
+        }
+        
+    });  
+
+        //获取验证码
+ $("#msg").click(function(){
+    var mobilePhone =$("#username").val()
+
+    console.log(mobilePhone)
+            $.ajax({
+ type: 'POST',
+ url:baseURL+"/api/getCode", 
+ data: {
+    "mobilePhone" : mobilePhone
+ },
+ success: function(data, status) {
+     console.log(data,status)
+ if (data.errcode==0) {
+
+
+
+ }else{
+
+ }
+ },
+ error: function(data, status) {
+ 
+ }
+ });
+ 
+ });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+.addresPage{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.addresPage .addHd{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: #33ccff;
+}
+.addresPage .addHd div{
+    padding: 0 20px;
+}
+.addHd  .hRight{
+    width:20px;
+    height: 20px;
+    margin-top: 20px;
+}
+.addHd  .hRight img{
+    display: block;
+    width:100% ;
+    height: 100%;
+}
+.addCot ul li{
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+}
+.addCot ul li .addToalo{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.addCot ul li .addToalo .addLeft{
+    display: flex;
+    margin-top: 10px;
+}
+.addCot ul li .addToalo .addLeft img{
+    display: block;
+    width: 30px ;
+    height: 24px;
+}
+.addCot ul li .addToalo .addRight img{
+    display: block;
+    width: 15px ;
+    height: 20px;
+}
+.addCot ul li .addToalo .addRight {
+   margin-top: 12px;
+}
+.addFoot ul li{
+    width: 100%;
+    height: 75px;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+
+}
+.addFoot ul li .fToalo{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.addFoot ul li .fToalo span{
+    font-size:12px;
+    color: #666;
+}
+.addFoot ul li .fToalo .fLeft{
+    display: flex;
+    margin-top: 10px;
+}
+.addFoot ul li .fToalo .fLeft img{
+    display: block;
+    width: 48px ;
+    height: 48px;
+}
+.addFoot ul li .fToalo .fLeft .fText{
+  margin-left: 10px;
+  line-height: 25px;
+}
+.addFoot ul li .fToalo .fRight{
+ margin-top: 10px;
+ line-height: 25px;
+}
+.addFoot ul li .fToalo .fRight p{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius:50%; 
+  background-color: #f45235;
+  font-size: 12px;
+  color: #fff;
+}

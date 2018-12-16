@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>人脉互动详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="layout1">
+        <!--<div class="top">
+            <div><a href="index.html"><img src="images/lf.png" alt=""></a></div>
+            <p>人脉互动详情</p>
+        </div>
+        <div class="contact">
+            <div class="contactPage">
+                <ul>
+                    <li class="contactList">
+                        <div class="totle">
+                            <div class="contactTop">
+                                <div class="left">
+                                    <div><img src="${data.data.fromCompany.avatar}" alt=""></div>
+                                    <div>
+                                        <p>${data.data.fromCompany.companyName}</p><span>${data.data.pushTime}</span>
+                                    </div>
+                                </div>
+                                <div class="right"><a href=""><img src="" alt=""><span>报名</span></a> </div>
+                            </div>
+                            <div class="contactText">
+                                <p>${data.data.message}</p>
+                            </div>
+                            <div class="contactImg">
+                                <ul>
+                                    <li><img src="${data.data.imagePath}" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="contactFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="comment">
+                <div class="commentTop"><p>评论</p></div>
+            </div>
+            <div class="conFoot">
+                <div><input type="text" placeholder="写下评论吧..."><button>发送</button></div> 
+        </div>-->
+    </div>   
+    <script>
+         //获取人脉id
+         var personTalkMsgId = localStorage.getItem('personTalkMsgId')
+        console.log(personTalkMsgId)
+        $.ajax({
+            type: "GET",
+            url: baseURL + "/personTalkMsg/getCompletePersonTalkMsgById/"+personTalkMsgId,
+            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+            dataType: "json",
+            xhrFields: {
+                withCredentials: true
+            },
+            data:{personTalkMsgId:personTalkMsgId},
+            success: function (data) {
+                console.log(data, 123)
+                var html = "";
+                for (var i in data) {
+                    console.log(data[i])
+                    html = `<div class="top">
+            <div><a href="index.html"><img src="images/lf.png" alt=""></a></div>
+            <p>人脉互动详情</p>
+        </div>
+        <div class="contact">
+            <div class="contactPage">
+                <ul>
+                    <li class="contactList">
+                        <div class="totle">
+                            <div class="contactTop">
+                                <div class="left">
+                                    <div><img src="${data.data.fromCompany.avatar}" alt=""></div>
+                                    <div>
+                                        <p>${data.data.fromCompany.companyName}</p><span>${data.data.pushTime}</span>
+                                    </div>
+                                </div>
+                                <div class="right" onclick="sign()"><img src="" alt=""><span>报名</span></div>
+                            </div>
+                            <div class="contactText">
+                                <p>${data.data.message}</p>
+                            </div>
+                            <div class="contactImg">
+                                <ul>
+                                    <li><img src="${data.data.imagePath}" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="contactFoot">
+                                <div class="list1"><img src="images/eye.jpg" alt=""><span>4546</span></div>
+                                <div class="list2"><img src="images/zan.jpg" alt=""><span>45646</span></div>
+                                <div class="list3"><img src="images/xx.jpg" alt=""><span>1323</span></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="comment">
+                <div class="commentTop"><p>评论</p></div>
+            </div>
+            <div class="conFoot">
+                <div><input type="text" placeholder="写下评论吧..."><button>发送</button></div> 
+        </div>`
+                }
+                $('.layout1').html(html);
+                console.log(html, 123)
+            },
+        });
+        //报名
+        function sign() {
+            $.ajax({
+            type: "POST",
+            url: baseURL + "/personTalkMsg/signUp",
+            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+            dataType: "json",
+            xhrFields: {
+                withCredentials: true
+            },
+            data:{personTalkMsgId:personTalkMsgId},
+            success: function (data) {
+                console.log(data, "报名成功")
+            }
+        })
+        }
+
+    
+    
+    </script>
+</body>
+
+</html>

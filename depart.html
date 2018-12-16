@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自建部门</title>
+    <link rel="stylesheet" href="css/company.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div class="departPage">
+        <div class="departTop">
+            <div class="departTolao">
+                <img src="images/lf.png" alt="">
+                <p>自建部门</p>
+                <span id="send">确定</span>
+            </div>
+        </div>
+        <div class="departCot">
+            <ul>
+                <li><p>添加部门</p><input type="text" id="depart"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $("#send").click(function () {
+            console.log(1)
+            let department=$("#depart").val()
+            console.log(department)
+            $.ajax({
+             type: "POST",
+             url: baseURL+"/company/department",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {department:department}, 
+             success: function(data){
+             console.log(data,111)
+             go()
+                      }
+         });
+
+        })
+    </script>
+</body>
+</html>

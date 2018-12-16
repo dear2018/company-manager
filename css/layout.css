@@ -1,0 +1,1111 @@
+/* 背景颜色白色  */
+.layout{
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+/* 修改密码  */
+.layout .top{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.layout .top div{
+    width: 30px;
+    height: 30px;
+    margin: 10px 15px;
+}
+.layout .top div img{
+    display: block;
+    width: 11px;
+    height: 23px;
+}
+.layout .top p{
+    font-size: 16px;
+    color: #333;
+    margin-left: 40%;
+    transform:translateX(-75%)
+}
+/* 背景颜色eee */
+.layout1{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+
+.layout1 .top{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.layout1 .top div{
+    width: 40px;
+    height: 30px;
+    margin:10px;
+}
+.layout1 .top div img{
+    display: block;
+    width: 15px;
+    height: 23px;
+}
+.layout1 .top p{
+    font-size: 16px;
+    color: #333;
+    margin-left: 40%;
+    transform:translateX(-90%)
+}
+
+.layout .bot{
+    margin-top: 10px;
+}
+.layout .bot ul li{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.layout .bot ul li input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: transparent;
+}
+.layout .bot ul li input::-webkit-input-placeholder {
+/* placeholder颜色  */
+       color:#999999;
+ /* placeholder字体大小  */
+       font-size: 16px;
+     text-indent: 10px;
+ }
+ .layout .foot{
+     width: 90%;
+     margin: 40px auto 0;
+ }
+ .layout .foot button{
+     width: 100%;
+     height:45px ;
+     background-color: #33ccff;
+    border-radius: 6px;
+    outline: none;
+    border: transparent;
+    color: #fff;
+ }
+/*  邀请同事 */
+.layout .cot ul{
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background: #fff;
+  border-bottom: 1px solid #f4f4f4;
+}
+.layout .cot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+    margin: 0 auto;
+
+}
+.layout .cot ul li div{
+    display: flex;
+}
+.layout .cot ul li p{
+    font-size: 20px;
+    color: #333;
+}
+/* 财务部 */
+.layout .accountPage ul {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+}
+.layout .accountPage ul li{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    height: 55px;
+    line-height: 55px;
+        
+}
+.layout .accountPage ul li div{
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    margin: 6px 20px 5px 0;
+}
+.layout .accountPage ul li div img{
+    width: 100%;
+    height: 100%;
+}
+/*消息中心*/
+.layout .messagePage ul {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    
+}
+.layout .messagePage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    height:60px;    
+}
+.layout .messagePage ul li .time p{
+    padding: 20px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+.layout .messagePage ul li .left{
+    display: flex;
+}
+.layout .messagePage ul li .left .Img{
+    width:40px;
+    height: 40px;
+    border: 1px solid;
+    margin: 10px 10px 0 0;
+}
+.layout .messagePage ul li .left .Img img{
+    width: 100%;
+    height: 100%;
+}
+.layout .messagePage ul li .right{
+    text-align: left;
+    padding: 10px 0;
+}
+.layout .messagePage ul li .right p{
+    font-size: 16px;
+    color: #888;
+}
+.layout .messagePage ul li .right span{
+    font-size: 14px;
+    color: #ccc;
+}
+/* 新朋友 */
+.layout .friendPage ul {
+    width: 100%;
+    background: #fff;
+    
+}
+.layout .friendPage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    height:60px;    
+}
+.layout .friendPage ul li .left{
+    width:40px;
+    height: 40px;
+    border: 1px solid;
+    margin: 10px 10px 0 0;
+}
+.layout .friendPage ul li .right{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f4f4f4;
+    line-height: 60px;
+}
+.layout .friendPage ul li .right p{
+    color: #666;
+    font-size: 14px;
+}
+.layout .friendPage ul li .right button{
+    width:58px;
+    height: 25px;
+    border: 1px solid #33ccff;
+    background: #fff;
+    margin: 18px 0;
+    color: #33ccff;
+    font-size: 15px;
+}
+/* 邀请同事 */
+.layout .inviteFdPage ul {
+    width: 100%;
+    background: #fff;
+    
+}
+.layout .inviteFdPage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    height:40px;   
+    line-height: 40px;
+    border-bottom: 1px solid #f4f4f4; 
+}
+.layout .inviteFdPage ul li .left{
+    display: flex;
+
+}
+.layout .inviteFdPage ul li .left span{
+    font-size: 18px;
+    color: #666;
+
+}
+.layout .inviteFdPage ul li .left img{
+   width:20px;
+   height: 20px;
+   border: 1px solid;
+   margin: 10px 10px 10px 0;    
+}
+.layout .inviteFdPage ul li .right{
+    width: 13px;
+    height: 16px;
+    border: 1px solid;
+    margin: 10px 0;
+}
+/*业务目标*/
+.layout2 .businessPage #target{
+   font-size: 16px;
+   outline: none;
+   border: none;
+   width: 100%;
+   height: 400px;
+   resize: none;
+}
+.layout2 .businessPage #target::placeholder{
+    color: #333;
+    text-indent: 20px;
+}
+/*公司辅导*/
+.layout1 .guidancePage {
+    margin-top: 10px;
+}
+.layout1 .guidancePage ul{
+    width: 100%;
+    background: #fff;
+}
+.layout1 .guidancePage ul li{
+    width: 90%;
+    margin: 0 auto;
+    height:50px;
+    line-height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.layout1 .guidancePage ul li p{
+    font-size: 20px;
+    color: #333;
+}
+/*  公司主行业 */
+.layout2 .mainPage ul{
+    width: 100%;
+    background: #fff;
+}
+.layout2 .mainPage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    height:45px;
+    line-height: 45px;
+    border-bottom: 1px solid #f4f4f4;
+}
+/*  三列  */
+.layout2 {
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.layout2 .top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.layout2 .top div{
+    width:30px;
+    height: 30px;
+   margin: 10px;
+}
+.layout2 .top div img{
+    display: block;
+    width: 11px;
+    height: 23px;
+}
+.layout2 .top p{
+    font-size: 19px;
+}
+.layout2 .top  span{
+    font-size: 14px;
+    padding: 0 13px 0 0;
+}
+/*  编辑资料 */
+.layout2 .editTop ul{
+    width:100%;
+    background: #fff;
+    margin-top: 10px;
+}
+.layout2 .editTop ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height:50px;
+    margin: 0 auto;
+    line-height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+    color: #333;
+}
+.layout2 .editTop ul li .editImg{
+    position: relative;
+}
+.layout2 .editTop ul li .editImg #file{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    opacity: 0;
+}
+.layout2 .editTop ul .in img{
+    display: block;
+    margin-top: 5px;
+    width: 40px;
+   height: 40px;
+}
+.layout2 .editTop ul li p{
+    font-size: 14px;  
+  }
+.layout2 .editTop ul li input{
+    width: 90%;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 12px;
+    outline: none;
+    border: none;
+}
+/*  找回密码 */
+.bcPage .top{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.bcPage .top div{
+    margin-left: 10px;
+}
+.bcPage .top div img{
+    width: 11px;
+    height: 23px;
+    padding: 13px 0;
+}
+.bcPage .top p{
+    font-size: 16px;
+    color: #333;
+    margin-left: 50%;
+    transform:translateX(-75%)
+}
+
+.bcPage .bot{
+    margin-top: 10px;
+}
+.bcPage .bot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.bcPage .bot ul li span{
+    display: inline-block;
+    width: 105px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+	background-color: #33ccff;
+    border-radius: 6px;
+    color: #fff;
+    margin: 10px 0;
+}
+.bcPage .bot ul li input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: transparent;
+}
+.bcPage input::-webkit-input-placeholder {
+/* placeholder颜色  */
+       color:#999999;
+               /* placeholder字体大小  */
+       font-size: 16px;
+     text-indent: 10px;
+ }
+ .bcPage .foot{
+     width: 90%;
+     margin: 40px auto 0;
+ }
+.bcPage .foot button{
+     width: 100%;
+     height:45px ;
+     background-color: #33ccff;
+    border-radius: 6px;
+    outline: none;
+    border: transparent;
+    color: #fff;
+ }
+ /* 记一笔 */
+ .layout2 .notePage{
+     background: #fff;
+     height: 93vh;
+ }
+ .layout2 .notePage ul li{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #f4f4f4;
+ }
+ .layout2 .notePage ul li span{
+     padding-left: 20px;
+     font-size: 13px;
+     color: #666;
+ }
+ .layout2 .notePage ul li input{
+     height: 26px;
+     outline: none;
+     border: none;
+ }
+ /*  详情 */
+ .layout .detailPage{
+     width: 100%;
+      height: 93vh;
+      background: #eee;
+ }
+ .layout .detailPage ul li{
+     width: 100%;
+     border-top: 10px solid #f4f4f4;
+     background: #fff;
+ }
+ .layout .detailPage ul li .bot{
+     display: flex;
+     justify-content: space-between;
+     width: 90%;
+     height:45px;
+     line-height: 45px;
+     margin: 0 auto;
+ }
+ .layout .detailPage ul li .bot .totol{
+     width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+ .layout .detailPage ul li .bot .left{
+     display: flex;
+ }
+ .layout .detailPage ul li .bot .left img{
+    width:15px;
+    height: 15px;
+    padding: 15px 5px ;
+}
+.layout .detailPage ul li .bot .right img{
+    width: 18px;
+    height: 18px;
+}
+/* 会议通知 */
+.noticePage{
+    width: 100%;
+    height: 93vh;
+    background: #eee;
+}
+.noticePage ul li{
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+}
+.noticePage ul li .noticeTop,.noticePage ul li .noticeBot{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+.noticePage ul li .noticeTop{
+    display: flex;
+    justify-content: space-between;
+}
+.noticePage ul li .noticeTop p,.noticePage ul li .noticeBot p{
+    font-size: 16px;
+    color: #333;
+}
+.noticePage ul li .noticeTop span{
+    font-size: 12px;
+    color: #999;
+}
+/* 会议详情 */
+.layout1 .ndPage{
+    width: 100%;
+    height: 93vh;
+    background: #eee;
+}
+.layout1 .ndPage .Hd{
+    width: 100%;
+    background: #fff;
+}
+.layout1 .ndPage .Hd ul li{
+     width: 90%;
+     margin: 0 auto;
+     text-align: center;
+}
+.layout1 .ndPage .Hd ul li .ndTop{
+    border-bottom: 1px solid #f4f4f4;
+}
+.layout1 .ndPage .Hd ul li .ndTop p{
+    padding: 20px 0 5px 0;
+    font-size:18px;
+    color: #333; 
+}
+.layout1 .ndPage .Hd ul li .ndTop span{
+    font-size:12px;
+    color: #666; 
+}
+.layout1 .ndPage .Hd ul li .ndBot p{
+    padding: 20px 0;
+    font-size:18px;
+    color: #333; 
+}
+.layout1 .ndPage .Foot{
+    margin-top: 10px;
+    float: right;
+    margin-right: 20px;    
+}
+.layout1 .ndPage .Foot button{
+    width: 84px;
+    height:35px;
+    line-height: 35px;
+    text-align: center;
+    outline: none;
+    border: 1px solid  #313131;
+    background: #fff;
+    font-size:14px; 
+    color: #666;
+    border-radius: 31px;
+}
+/*发布会议  */
+.layout2 .notice1Page{
+    width: 100%;
+    height: 93vh;    
+}
+.layout2 .notice1Page input{
+    display: block;
+    width: 100%;
+    height: 40px;
+     border: none;
+     outline: none;
+     border-bottom: 1px solid #f4f4f4;
+}
+.layout2 .notice1Page textarea{
+    width: 100%;
+     border: none;
+     outline: none;
+     resize: none;
+    padding: 20px 0;
+}
+.layout2 .cdPage .cdTop  textarea::placeholder ,.layout2 .notice1Page textarea::placeholder {
+    /* placeholder颜色  */
+           color:#333;
+     /* placeholder字体大小  */
+           font-size: 15px;
+         text-indent: 20px;
+ }
+ /* 发布人脉互动  */
+ .layout2 .cdPage{
+  width: 100%;
+  height: 93vh;
+  background: #eee;
+ }
+ .layout2 .cdPage .cdTop{
+     width: 100%;
+    background: #fff;
+    padding: 20px 0;
+ }
+ .layout2 .cdPage .cdTitle{
+     width: 100%;
+     height: 40px;
+     line-height: 40px;
+     background: #fff;
+     border-bottom: 1px solid #f4f4f4;
+ }
+ .layout2 .cdPage  .cdTitle input{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    height:35px;
+    outline: none;
+    border: none;
+ }
+ .layout2 .cdPage .cdTop textarea{
+     display: block;
+    width:90%;
+    border: none;
+    outline: none;
+    resize: none;
+    margin: 0 auto;
+ }
+ .layout2 .cdPage .cdTop textarea::placeholder{
+     font-size: 16px;
+     color: #333;
+ }
+.layout2 .cdPage .cdTop  img{
+    width:80px;
+    height: 80px;
+    margin: 20px;
+}
+.layout2 .cdPage .cdTop .Upimg{
+    position: relative;
+}
+.layout2 .cdPage .cdTop .Upimg #File{
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    top: 20px;
+    left: 20px;
+    opacity: 0;
+}
+/*人脉互动详情*/
+.layout .content{
+    width: 100%;
+    background: #fff;
+}
+.layout .content .conTop{
+    width: 90%;
+    margin: 10px auto;
+}
+.layout .content .conTop .Tt{
+    display: flex;
+}
+.layout .content .conTop .Tt img{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.layout .content .conTop .Tt p{
+    font-size: 17px;
+    color: #999;
+}
+.layout .content .conTop .Tt span{
+    font-size: 13px;
+    color: #666;
+}
+.layout .content .conTop .Tb{
+    font-size: 17px;
+    color: #323333;
+    margin: 20px 0;
+}
+.layout .content .conTop .Timg ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.layout .content .conTop .Timg ul li{
+   width: 33%;
+   height:110px;
+   box-sizing: border-box;
+   text-align: center;
+   margin: 5px 0;
+}
+.layout .content .conTop .Timg ul li img{
+    display: block;
+    width: 110px;
+    height:110px;
+ }
+.layout .comment{
+     border-top: 10px solid #eee;
+ }
+ .commentText{
+     background: #fff;
+ }
+ .commb_childa {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #eeeeee;
+  }
+  .commb_childa > div:nth-child(1) {
+    display: flex;
+    padding: 1rem;
+  }
+  .commb_childa > div:nth-child(1) > div:nth-child(1) {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .commb_childa > div:nth-child(1) > div:nth-child(1) > img {
+    width: 100%;
+    height: 100%;
+  }
+  .commb_childa > div:nth-child(1) > div:nth-child(2) {
+    margin-left: 0.5rem;
+  }
+  .commb_childa > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+    color: #000000;
+    font: normal 1.365rem PingFang-SC-Regular;
+    line-height: 2rem;
+  }
+  .commb_childa > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+    color: #333333;
+    font: normal 1.067rem SimHei;
+    line-height: 1.5rem;
+  }
+  .commb_childa > div:nth-child(2) {
+    width: 100%;
+    padding: 0 1.5rem 0 4.5rem;
+    color: #333333;
+    font: normal 1.28rem PingFang-SC-Regular;
+    word-wrap: break-word;
+  }
+  .commb_childa > div:nth-child(3) {
+    width: 80%;
+    margin-left: 15%;
+    background: #eeeeee;
+  }
+  
+  .commb_childb {
+    width: 100%;
+    padding: 0 1rem;
+    margin-top: 1rem;
+  }
+  .commb_childb > .childb {
+    color: #333333;
+    padding: 0.5rem 0;
+  }
+  .commb_childb > .childb > span:nth-child(1), .commb_childb > .childb > span:nth-child(3) {
+    color: #112c8e;
+    font: normal 1.28rem PingFang-SC-Regular;
+  }
+  .commb_childb > .childb > span:nth-child(2), .commb_childb > .childb > span:nth-child(4) {
+    font: normal 1.28rem PingFang-SC-Regular;
+  }
+  /* 公共样式  */
+.layout2 .comment{
+     background: #fff;
+     margin-top: 10px;
+     height: 80vh;
+ }
+ .comment .commentTop{
+     width: 100%;
+     height: 50px;
+     line-height: 50px;     
+ }
+  .comment .commentTop p{
+     font-size: 15px;
+     color: #333;
+     margin-left: 30px;
+ }
+  .conFoot{
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 55px;
+     background: #fff;
+ }
+  .conFoot div{
+     width: 90%;
+     margin: 5px auto;
+ }
+ .conFoot input{
+    width:80%;
+    height: 42px;
+    outline: none;
+    border: 1px solid #eee;
+    text-indent: 20px;
+ }
+  .conFoot button{
+     width: 50px;
+     height: 42px;
+     line-height: 42px;
+     text-align: center;
+     outline: none;
+     border: none;
+     color: #666;
+     background: #eee;
+     margin-left:10px ;
+ }
+ /* 公司互动详情 */
+  .interaction{
+    background: #fff; 
+ }
+ .interaction .interPage ul .interList .totle{
+    width: 90%;
+    margin: 0 auto;
+}
+ .interPage ul li .interTop{
+    display: flex;
+    width: 100%;
+    height:65px;
+}
+ .interPage ul li .interTop div{
+    margin: 10px 0;
+}
+ .interPage ul li .interTop img{
+    width: 40px;
+    height:40px;
+   margin-right: 10px;
+}
+ .interPage ul li .interTop p, .interPage ul li .interText p{
+    color: #323333;
+    font-size:17px;
+}
+ .interPage ul li .interTop span{
+    color: #666;
+    font-size:12px;
+}
+ .interPage ul li .interImg {
+ margin-top: 10px;
+}
+ .interPage ul li .interImg ul{
+    display: flex;
+    flex:wrap;
+}
+ .interPage ul li .interImg ul li{
+    width: 33%;
+    box-sizing: border-box;
+    margin: 5px 0 10px 0;
+}
+ .interPage ul li .interImg ul li img{
+    display: block;
+    width: 107px;
+    height: 103px;
+}
+ .interPage ul li .interFoot{
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    line-height: 40px;
+}
+ .interPage ul li .interFoot div { 
+    padding: 5px 0;
+}
+ .interPage ul li .interFoot div span{ 
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+ .interPage ul li .interFoot .list1 img{
+    width:18px;
+    height:16px;
+}
+ .interPage ul li .interFoot .list2 img{
+    width:18px;
+    height:16px;
+}
+ .interPage ul li .interFoot .list3 img{
+    width:20px;
+    height:16px;
+}
+/* 人脉互动详情 */
+ .contact{
+   width: 100%;
+   background: #fff;
+}
+.contact .contactPage ul .contactList .totle{
+    width: 90%;
+    margin: 0 auto;
+}
+.contactPage ul li .contactTop{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height:65px;
+}
+.contactPage ul li .contactTop .left{
+    display: flex;
+    padding-top:10px ;
+}
+.contactPage ul li .contactTop .right{
+    width:55px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    margin-top:15px ;
+    background: #33ccff;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 20px;
+}
+.contactPage ul li .contactTop img{
+    width: 40px;
+    height:40px;
+    margin-right: 10px;
+}
+.contactPage ul li .contactTop p,.contactPage ul li .contactText p{
+    color: #323333;
+    font-size:17px;
+}
+.contactPage ul li .contactTop span{
+    color: #666;
+    font-size:12px;
+}
+.contactPage ul li .contactImg {
+ margin-top: 10px;
+}
+.contactPage ul li .contactImg ul{
+    display: flex;
+    flex:wrap;
+}
+.contactPage ul li .contactImg ul li{
+    width: 33%;
+    box-sizing: border-box;
+}
+.contactPage ul li .contactImg ul li img{
+    display: block;
+    width: 107px;
+    height: 103px;
+}
+.contactPage ul li .contactFoot{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
+}
+.contactPage ul li .contactFoot div { 
+    padding: 5px 0;
+}
+.contactPage ul li .contactFoot div span{ 
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+.contactPage ul li .contactFoot .list1 img{
+    width:18px;
+    height:16px;
+}
+.contactPage ul li .contactFoot .list2 img{
+    width:18px;
+    height:16px;
+}
+.contactPage ul li .contactFoot .list3 img{
+    width:20px;
+    height:16px;
+}
+/*消息详情 */
+.ndePage{
+    width: 100%;
+    background: #fff;
+}
+.ndePage .ndeTop{
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.ndePage .ndeTop p{
+    color: #333;
+    font-size: 16px;
+}
+.ndePage .ndeTop span{
+    color: #666;
+    font-size: 12px;
+}
+.ndePage .ndeBot{
+    padding: 10px 0;
+    color: #333;
+    font-size: 14px;
+    text-indent: 20px;
+}
+ .ndeButt{
+     float: right;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #999;
+    border: 1px solid #999;
+    border-radius: 20px;
+    margin: 20px;
+}
+/* 人脉报名*/
+.singPage{
+    width: 100%;
+    height: 100vh;
+}
+.singPage ul{
+width: 100%;
+background: #fff;
+}
+.singPage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+    margin: 0 auto;
+}
+.singPage ul li .singLeft{
+    display: flex;
+}
+.singPage ul li .singLeft img{
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.singPage ul li .singLeft span{
+  font-size: 14px;
+  color: #666;
+}
+.singPage ul li .signRight{
+    display: flex;
+}
+.singPage ul li .signRight p{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    background: #33ccff;
+    margin: 10px 0 0 5px;
+}
+/*  评论回复 */
+.commentText{
+    display: block;
+    width: 100%;
+    background: #fff;
+}
+.commentText .comCot{
+    width: 90%;
+    margin: 0 auto 20px;
+}
+.commentText .comCot .textTop{
+    display: flex;
+    padding: 10px 0 5px 0;
+}
+.commentText .comCot .textTop .textLeft img{
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+.commentText .comCot .textTop .textRight{
+    margin-left: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.commentText .comCot .textbot{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #333;
+}
+.hf{
+    width: 70%;
+    margin: 0 auto;
+}
+.hf .Hf{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: none;
+}
+.hf p{
+   font-size: 14px;
+   color: #333;
+}

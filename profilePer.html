@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司简介2</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+
+<body>
+    <div class="profilePage">
+        <div class="profileTop">
+            <div  onclick="go()"><img src="images/lf.png" alt="" ></div>
+            <p>公司简介</p>
+        </div>
+        <div id="proTotal"></div>
+       <!-- <div class="profileImg">
+            <img src="" alt="">
+        </div>
+        <div class="profileCot">
+            <ul>
+                <li>
+                    <p>公司名称</p>
+                    <p>腾达科技有限公司</p>
+                </li>
+                <li>
+                    <p>公司logo</p><img src="" alt="">
+                </li>
+                <li>
+                    <p>认证情况</p>
+                    <p>已认证</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>联系电话</p>
+                    <p>12231323</p>
+                </li>
+                <li>
+                    <p>邮箱</p>
+                    <p>1232123121</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>公司主行业</p>
+                    <p>12231323</p>
+                </li>
+                <li>
+                    <p>公司产品/服务/需求</p>
+                    <p>1232123121</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>地址</p>
+                    <p>12231323</p>
+                </li>
+                <li>
+                    <p>详细地址</p>
+                    <p>1232123121</p>
+                </li>
+            </ul>
+        </div>
+        <div class="profileFoot">
+            <ul>
+                <li>
+                    <p>公司简介</p>
+                    <span>本公司从事服务火锅行业，本公司一直要求安全第
+                        一，质量第一，服务第一的本则。</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>最新动态</p>
+                    <span>本公司将在11月份推出火锅新品，欢迎大家前来品
+                        尝。
+                    </span>
+                </li>
+            </ul>
+        </div>-->
+    </div>
+    <script>
+          $.ajax({
+                type: "GET",
+                url: baseURL + "/company/getCurrentCompanyMessage",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        var type=""
+                        if(data.data.auth==0){
+                            type="未认证" 
+                        }else{
+                            type="已认证"
+                        }
+                        html = `  <div class="profileImg">
+            <img src="${data.data.businessLicense}" alt="">
+        </div>
+        <div class="profileCot">
+            <ul>
+                <li>
+                    <p>公司名称</p>
+                    <p>${data.data.companyName}</p>
+                </li>
+                <li>
+                    <p>公司logo</p><img src="${data.data.avatar}" alt="">
+                </li>
+                <li>
+                    <p>认证情况</p>
+                    <p>${type}</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>联系电话</p>
+                    <p>${data.data.mobilePhone}</p>
+                </li>
+                <li>
+                    <p>邮箱</p>
+                    <p>${data.data.email}</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>公司主行业</p>
+                    <p>${data.data.companyType}</p>
+                </li>
+                <li>
+                    <p>公司产品/服务/需求</p>
+                    <p>${data.data.companyScope}</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>地址</p>
+                    <p>${data.data.address}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="profileFoot">
+            <ul>
+                <li>
+                    <p>公司简介</p>
+                    <span> ${data.data.introduce}</span>
+                </li>
+            </ul>
+        </div>`
+                    }
+                $('#proTotal ').html(html);
+                console.log(html,123)
+                },
+            });
+    </script>
+</body>
+
+</html>

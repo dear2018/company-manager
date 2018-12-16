@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>行业信息详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <!--头部-->
+        <div class="top">
+            <div><a href="index.html"><img src="images/lf.png" alt=""></a></div>
+            <p>行业信息详情</p>
+        </div>
+        <!--发表内容-->
+        <div class="content">
+           <div class="conTop">
+               <!--<div class="Tt">
+                   <div><img src="images/1.png" alt=""></div>
+                   <div><p>2221</p><span>12231</span></div>
+               </div>
+               <div class="Tb"><p></p></div>
+               <div class="Timg">
+                   <ul>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                    </ul>
+                </div>-->
+           </div>
+        </div>
+        <!--评论-->
+        <div class="comment">
+            <div class="commentTop"><p>评论</p></div>
+        </div>
+        <div class="conFoot">
+            <div><input type="text" placeholder="写下评论吧..."><button>发送</button></div> 
+        </div>
+    </div>
+    <script>
+            //获取id
+			var businessMessageId  = localStorage.getItem('businessMessageId ')
+			 console.log(businessMessageId )
+             $.ajax({
+             type: "GET",
+             url: baseURL+"/businessMessage/getBusinessMessageByBusinessMessageId/"+businessMessageId,
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {businessMessageId:businessMessageId}, 
+             success: function(data){
+             console.log(data,111)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data)
+                        html = `<div class="Tt">
+                   <div><img src="${data.data.company.avatar}" alt=""></div>
+                   <div><p>${data.data.company.companyName}</p><span>${data.data.pushTime}</span></div>
+               </div>
+               <div class="Tb"><p>${data.data.message}</p></div>
+               <div class="Timg">
+                   <ul>
+                        <li><img src="${data.data.images[i]}" alt=""></li>
+                        <!--<li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>
+                        <li><img src="images/500493639.jpg" alt=""></li>-->
+                    </ul>
+                </div>`
+                    }
+                $('.conTop ').html(html);
+                console.log(html,123)
+                      }
+         });
+
+    </script>
+</body>
+</html>

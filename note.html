@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记一笔</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+
+<body>
+    <div class="layout2">
+        <div class="top">
+            <div><a href="index.html"><img src="images/lf.png" alt=""></a></div>
+            <p>记一笔</p>
+            <span id="send">确定</span>
+        </div>
+        <div class="notePage">
+            <ul>
+                <li><span>介绍</span> <input type="text" id="introduce"></li>
+                <li><span>备注</span> <input type="text" id="name"></li>
+                <li><span>价钱</span> <input type="text" id="price"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+             $("#send").click(function () {
+             console.log(111)
+           let introduce=$("#introduce").val()
+           let name =$("#name ").val()
+           let price =$("#price ").val()
+           let type=0//收入或支出  0支出  1收入
+           console.log(introduce,name,price)
+           if (price>0) {
+                type="收入"
+           } else {
+               type="支出"
+           }
+           console.log(type)
+            $.ajax({
+             type: "POST",
+             url:baseURL+ "/charge/pushCharge",
+             xhrFields: {
+				        withCredentials: true
+                        },
+             data: {"introduce":introduce, "name":name,"price":price,"type":type}, 
+             success: function(data){
+             console.log(data)
+                go()
+                      }
+         });
+         })
+    </script>
+</body>
+
+</html>

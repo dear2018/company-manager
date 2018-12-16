@@ -1,0 +1,957 @@
+.wrap{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.wrap .top{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.wrap .top div{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+.wrap .top div img{
+    display: block;
+    width: 11px;
+    height: 23px;
+  
+}
+.wrap .top p{
+    font-size: 16px;
+    color: #333;
+    margin-left: 40%;
+    transform:translateX(-55%)
+}
+/*网络宣传 */
+.pubTop{
+    width: 100%;
+    background: #fff;
+}
+.pubTop .tT{
+    width: 90%;
+    margin: 0 auto;
+}
+.pubTop .tT .first{
+    display: flex;
+    justify-content: space-between;
+    height:60px;
+    line-height: 60px;
+}
+.pubTop .tT .first button{
+    width:80px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background:#eee;
+    font-size: 15px;
+    color: #33ccff;
+    outline: none;
+    border: none; 
+    margin: 10px 0;
+    border-radius: 6px;
+}
+.pubTop .tT .tImg{
+    width: 100%;
+    height: 164px;
+    padding-bottom: 20px;
+}
+.pubTop .tT .tImg img{
+    width: 100%;
+    height: 100%;
+}
+.second{
+    width: 100%;
+}
+.second ul li{
+    width: 100%;
+    background: #fff;
+    margin-top: 20px;
+}
+.second ul li .sTop{
+    width: 90%;
+    margin: 0 auto;
+}
+.second ul li .sTop p{
+    font-size: 16px;
+    color: #333;
+    padding: 15px;
+}
+.second ul li .sTop video{
+    width: 100%;
+    height:126px;
+}
+.second ul li .sTop  div{
+   overflow: hidden;
+}
+.second ul li .sTop button{
+    float: right;
+    width:85px;
+    height: 35px;
+    border-radius: 6px;
+    border: solid 1px #a0a0a0;
+    color: #333333;
+    font-size: 14px;
+    margin:10px;
+    text-align: center;
+}
+/* 三列  */
+.wrap1{
+    width: 100%;
+    height: 100vh;
+    background: #eee;
+}
+.wrap1 .top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.wrap1 .top div{
+    padding: 0 20px;
+}
+.wrap1 .top .left{
+    margin: 8px 0;
+}
+.wrap1 .top .left img{
+    width:15px;
+    height: 22px;
+}
+.wrap1 .top .right img{
+    width:39px;
+    height:10px;
+}
+.wrap1 .top .right P{
+    color: #333;
+    font-size:15px; 
+}
+.wrap1 .interCot{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height:45px;
+    line-height: 45px;
+    background-color: #f4f4f4;
+	box-shadow: 0px 3px 7px 0px 
+		rgba(0, 0, 0, 0.1);
+}
+.wrap1 .interCot p{
+    width:66px;
+    height: 100%;
+}
+.wrap1 .interCot #contact{
+    color: #33ccff;
+    border-bottom: 2px solid #33ccff;
+}
+.wrap1 .interCot #interaction{
+    color: #000;
+}
+.wrap1 .interaction{
+    display: none;
+}
+/*  我参加的 */
+.joinCot ul li{
+    width: 100%;
+    background: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.joinCot ul li .totil{
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.joinCot ul li .totil .tTop{
+    display: flex;
+    justify-content: space-between;
+}
+.joinCot ul li .totil .tTop .tLeft img{
+    width:35px;
+    height:35px;
+    vertical-align: top;
+}
+.joinCot ul li .totil .tTop .tLeft span{
+    font-size: 16px;
+    color: #f4f4f4;
+    vertical-align: top;
+    margin-left: 10px;
+}
+.joinCot ul li .totil .tTop button{
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #33ccff;
+    border-radius: 23px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    outline: none;
+    border: transparent;
+    border-bottom: 2px solid #eee;
+}
+.joinCot ul li .tCot{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #eee;
+}
+.joinCot ul li .tCot .cLeft{
+    width:30%;
+    height: 62px;
+    padding: 0 0 0 20px;
+}
+.joinCot ul li .tCot .cLeft img{
+    display: block;
+    width: 72px;
+    height: 62px;
+}
+.joinCot ul li .tCot .cRight{
+    padding: 10px 0;
+    width:70%;
+    height: 40px;
+    line-height: 20px;
+    padding: 0 20px 0 0;
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /*设置行数*/
+     overflow: hidden;
+     margin-top: 10px;
+}
+.joinCot ul li .tCot .cRight p{
+    font-size: 12px;
+    color: #323333;
+
+}
+/* 我的项目 */
+.jecHd{
+    position: relative;
+    width: 100%;
+    height: 185px;
+    background: #f4f4f4;
+}
+.jecHd img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width:85px;
+    height: 90px;
+}
+.jecCot ul{
+    background: #f4f4f4;
+}
+.jecCot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    background: #fff;
+    margin:10px auto 0;
+    box-shadow: 0px 2px 5px 2px 
+		rgba(34, 23, 20, 0.1);
+    border-radius: 44px;
+}
+.jecCot ul li .jLeft {
+    width: 55%;
+    padding: 20px 0 20px 30px;
+}
+.jecCot ul li .jLeft p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+}
+.jecCot ul li .jLeft span{
+    color: #33ccff;
+}
+.jecCot ul li .jRight{
+    position: relative;
+}
+.jecCot ul li .jRight button{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    width:80px;
+    height: 30px;
+    background: #33ccff;
+    outline: none;
+    border: none;
+    box-shadow: 0px 2px 5px 2px 
+		rgba(51, 204, 255, 0.4);
+	border-radius: 29px;
+}
+/*添加新项目*/ 
+.addHd{
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background: #eeeeee;
+}
+.addHd img{
+   position: absolute;
+    left : 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+}
+.addHd #file{
+    display: block;
+    position: absolute;
+    left : 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    opacity: 0;    
+}
+.addCot{
+    background: #fff;
+}
+.addCot ul li{
+    display: flex;
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    padding-left: 20px;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: 15px;
+}
+.addCot ul li input {
+    outline: none;
+    border: none;
+    width: 60%;
+    height: 40px;
+    margin-top: 4px;
+}
+.addCot ::-webkit-input-placeholder{
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+.addCot .addLeft {
+    overflow: hidden;
+    margin: 20px;
+}
+.addCot .addLeft button{
+    float: right;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+	background-color: #33ccff;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+#addBut{
+    overflow: hidden;
+    margin: 20px;
+}
+#addBut button{
+    float: right;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+	background-color: #33ccff;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+.list{
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+}
+.list .listTop{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #000;
+    font-size: 18px;
+}
+.list input{
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 50px;
+}
+
+/* 我的钱包 */
+.moneyPage{
+  width: 100%;
+  background: #fff;
+  height: 100vh;  
+}
+.moneyPage .mHd{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: #33ccff;
+    font-size: 15px;
+}
+.mHd .hLeft{
+    display: flex;
+    padding-left: 20px;
+}
+.mHd .hLeft img{
+    width:15px;
+    height: 20px;
+    margin: 14px 10px 0 0;
+}
+.mHd .hRight{
+    padding-right: 20px;
+}
+.mHd .hRight a{
+    color: #fff;
+}
+.mCot{
+   width: 100%;
+   height: 100px;
+   background: #33ccff; 
+   font-size:15px;
+   color: #fff;
+}
+.mCot div{
+    padding: 10px 0 0 20px;
+}
+.mFoot ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e5e5e5;
+
+}
+.mFoot ul li span{
+    padding: 0 20px;
+    font-size: 15px;
+    color: #333;
+}
+.mFoot ul li img{
+    width: 15px;
+    height: 20px;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+/* 明细 */
+.lHd ul li{
+    width: 100%;
+    height:50px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.lHd ul li .total{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.lHd ul li .total .lLeft,.lHd ul li .total .lRight{
+    padding: 2px 0;
+}
+.lHd ul li .total .lLeft p{
+    font-size: 20px;
+    color: #333;
+}
+.lHd ul li .total .lLeft span{
+    font-size: 12px;
+    color: #333;
+}
+.lHd ul li .total .lRight p{
+    font-size: 10px;
+    color: #999;
+}
+.lHd ul li .total .lRight span{
+    font-size: 14px;
+    color: #333;
+}
+/* 提现支付 */
+.rHd{
+    margin: 10px 0;
+}
+.rHd ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.rHd ul li .hLeft{
+    display: flex;
+    padding-left: 20px;
+}
+.rHd ul li .hLeft img{
+    display: block;
+    width: 22px;
+    height: 32px;
+    padding-top: 13px;
+    margin-right: 10px;
+}
+.rHd ul li .hLeft span{
+    font-size: 15px;
+    color: #333;
+}
+.rCot{
+    width: 100%;
+    background: #fff;
+}
+.rCot div{
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 0;
+    font-size: 24px;
+    color: #333;
+}
+.rCot p{
+   font-size: 15px;
+   color: #666;
+   margin-bottom: 10px; 
+}
+.rCot input{
+    outline: none;
+    border: none;
+}
+.rFoot{
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin: 20px auto;
+    background-color: #33ccff;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+/*意见反馈 */
+.wrap .fHd{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.wrap .fHd .fLeft{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+.wrap .fHd .fLeft img{
+    width: 15px;
+    height: 20px;
+    padding: 14px 0;
+}
+.wrap .fHd .fLeft span{
+    margin-left: 10px;
+}
+.FCot{
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+}
+.FCot ul li{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.FCot ul li i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 2px #e5e5e5;
+    margin: 14px 20px;
+}
+ .fB{
+    margin: 10px 15px;
+    width: 100%;
+    color: #999;
+    font-size: 12px;
+}
+.fBot{
+    width: 100%;
+    background: #fff;
+}
+.fBot div{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.fBot div textarea{
+    outline: none;
+    border: none;
+    width: 100%;
+    resize: none;
+}
+.fBot div .fImg{
+    position: relative;
+}
+.fBot div .fImg img{
+   width: 80px;
+   height: 80px;
+}
+.fBot div .fImg #File{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+}
+.fBut button{
+    float: right;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #33ccff;
+    border: solid 2px #e5e5e5;
+    margin: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    outline: none;
+}
+/*  消息中心  */
+.nHd{
+    width: 100%;
+    height: 93vh;
+    background: #fff;
+}
+.nHd ul li{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.nHd ul li .nTop{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.nHd ul li .nTop .tLeft{
+    margin-top: 5px;
+    display: flex;
+}
+.nHd ul li .nTop .tLeft .lImg{
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+    padding-top: 8px;
+    margin-right: 10px;
+}
+.nHd ul li .nTop .tLeft .lImg img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.nHd ul li .nTop .lText p{
+    font-size: 17px;
+    color: #333333;
+}
+.nHd ul li .nTop .lText span{
+    font-size: 13px;
+    color: #999;
+}
+.nHd ul li .nTop .tRight p{
+    font-size: 13px;
+    color: #999;
+}
+.nHd ul li .nTop .tRight{
+    padding-top: 15px;
+}
+/*  */
+.sHd .hTop{
+  width: 100%;
+  height:50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+.sHd .sText{
+    width: 90%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+
+}
+.sHd .sText .total{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.sHd .sText .total .tTop{
+    display: flex;
+    justify-content: space-between;
+}
+.sHd .sText .total .tTop span{
+    font-size: 14px;
+    color:#666 ;
+}
+.sHd .sText .total .tTop i{
+    font-size: 14px;
+    color:#999 ;
+    font-weight: normal;
+}
+.sHd .sText .total  .tBot{
+    margin: 10px 0;
+    font-size: 12px;
+    color:#999 ;
+}
+/* 设置 */
+.setHd ul{
+margin: 10px 0;
+}
+.setHd ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-bottom:1px solid #eee;
+}
+.setHd ul li .sTolal{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 15px;
+    color: #333;
+}
+.setHd ul li img{
+    display: block;
+    width: 13px;
+    height: 20px;
+    margin-top: 12px;
+}
+.sBut{
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fa0505;
+    font-size: 18px;
+    background: #fff;
+}
+/*  关于 */
+.aCot {
+    width: 86%;
+    margin: 50px auto;
+}
+.aCot .aImg{
+    width: 100px;
+    height: 44px;
+    margin:  20px auto 0;
+}
+.aCot .aImg img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.aCot .aText{
+    margin: 50px 0;
+    font-size: 15px;
+    color: #333;
+}
+.aFoot{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+.aFoot h3{
+    font-size: 14px;
+    color: #666;
+}
+/*我的好友*/
+.fList ul li{
+  width: 100%;
+  height: 50px;
+  line-height: 27px;
+  border-bottom: 1px solid #f4f4f4;
+  background: #fff;
+}
+.fList ul li .listHd{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.fList ul li .listHd  img{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.fList ul li .listHd  p{
+  font-size: 15px;
+  color: #333;
+  margin-left: 20px;
+
+}
+/* 发布消息 */
+.fnHd {
+    background: #fff;
+    font-size: 15px;
+    color: #999;
+}
+.fnHd .fntop{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.fnHd .fntop input{
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.fnHd textarea{
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+    text-indent: 20px;
+    padding: 20px 0
+}
+.fnhd ::-webkit-input-placeholder{
+    font-size: 15px;
+    color: #999;
+}
+/* 项目详情  */
+.wrap1 .wTop{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #33ccff;
+}
+.wrap1 .wTop div{
+   width: 30px;
+   height: 30px;
+   margin: 10px;
+}
+.wrap1 .wTop div img{
+    display: block;
+    width: 11px;
+    height: 23px;
+  
+}
+.wrap1 .wTop p{
+    font-size: 16px;
+    color: #333;
+    margin-left: 40%;
+    transform:translateX(-80%)
+}
+/*  历史消息 */
+.hnHd ul li{
+  width: 100%;
+  border-bottom: 1px solid #f4f4f4;
+  background: #fff;
+}
+.hnHd ul li .hnTo{
+    width: 90%;
+    margin: 0 auto;
+}
+.hnHd ul li .hnTo .hntTop{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;    
+}
+.hnHdul ul li .hnTo .hntTop p{
+    font-size: 12px;
+    color: #333;
+}
+.hnHdul ul li .hnTo .hntTop span{
+    font-size: 12px;
+    color: #999;
+}
+.hnHd li .hntCot{
+    padding:0 0 5px 0;
+}
+.hnHd li .hntCot textarea{
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 聊天页面  */
+.chatPage{
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+.chatFoot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 40px;
+    background: #f4f4f4;
+}
+.chatFoot .Footer{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 5px auto;
+
+}
+.chatFoot textarea,.chatFoot button{
+    height: 40px;
+    resize: none;
+    outline: none;
+}
+ .chatFoot textarea{
+    width:80%; 
+}
+.chatFoot button{
+    width: 15%;
+    /*margin-top: 5px;*/
+}
+.chatLeft{
+    float: left;
+    padding: 10px;
+}
+.chatLeft .Ltotal,.chatRight .Rtotal{
+    display: flex;
+}
+.chatLeft img{
+    width: 40px;
+    height: 40px;
+}
+.chatRight{
+    float: right;
+    padding: 10px;
+}
+.chatRight img{
+    width: 40px;
+    height: 40px;
+}

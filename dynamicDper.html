@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工动态详情</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="layout1">
+        <div class="top">
+            <div onclick="go()"><img src="images/lf.png" alt=""></div>
+            <p>动态详情</p>
+        </div>
+        <div class="interaction">
+            <div class="interPage">
+                <ul>
+                    <!--<li class="interList">
+                                    <div class="totle">
+                                        <div class="interTop">
+                                            <div><img src="images/1.png" alt=""></div>
+                                            <div>
+                                                <p>陌上浅笑</p><span>12122123</span>
+                                            </div>
+                                        </div>
+                                        <div class="interText">
+                                            <p>周五晚上公司组织聚餐活动，每个人都必须出席，聚
+                                                会地址是老地点，希望大家相互转告。
+                                            </p>
+                                        </div>
+                                        <div class="interImg">
+                                            <ul>
+                                                <li><img src="images/500299093.jpg" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="comment">
+            <div class="commentTop">
+                <p>评论</p>
+            </div>
+        </div>
+        <div class="commentText">
+            <!--<div class="comCot">
+                    <div class="textTop">
+                            <div class="textLeft"><img src="${data.data.discussMessages[k].fromUser.avatar}" alt=""></div>
+                            <div class="textRight"><p>${data.data.discussMessages[k].fromUser.userName}</p>
+                                <span>${data.data.discussMessages[k].fromUser.createTime}</span></div>
+                    </div>
+                    <div class="textbot"><p>${data.data.discussMessages[k].message}</p></div>
+            </div>-->
+            <!--回复-->
+        <div class="hf">
+        </div>
+            
+          
+        </div>
+        <div class="conFoot">
+            <div><input id="Text" type="text" placeholder="写下评论吧..."><button id="send">发送</button></div>
+        </div>
+
+    </div>
+    <script>
+        //动态信息Id   
+        var dynamicMessageId = localStorage.getItem('dynamicMessageId')
+        //console.log(dynamicMessageId)
+        $(function(){
+            $.ajax({
+            type: "GET",
+            url: baseURL + "/companyDynamicMessage/getCompanyDynamicMessageByDynamicMessageId/" + dynamicMessageId,
+            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+            dataType: "json",
+            xhrFields: {
+                withCredentials: true
+            },
+            data: { dynamicMessageId: dynamicMessageId },
+            success: function (data) {
+                var html = "";
+                var data=data.data;
+                for (var i in data) {
+                    html = `<li class="interList">
+                                    <div class="totle">
+                                        <div class="interTop">
+                                            <div><img src="${data.company.avatar}" alt=""></div>
+                                            <div>
+                                                <p>${data.company.companyName}</p><span>${getLocalTime(data.pushTime)}</span>
+                                            </div>
+                                        </div>
+                                        <div class="interText">
+                                            <p>${data.message}</p>
+                                        </div>
+                                        <div class="interImg">
+                                            <ul>
+                                                <li><img src="${data.imagePath}" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>`
+                }
+                $('.interPage ul ').html(html);
+               // 渲染列表
+               var htm = "";
+                 for (var k=0;k<data.discussMessages.length; k++) {
+                 console.log(data.discussMessages[k],data.discussMessages.length)
+                 htm += `<div class="comCot" onclick="ent(${data.discussMessages[k].discussMessageId})">
+                    <div class="textTop">
+                            <div class="textLeft"><img src="${data.discussMessages[k].fromUser.avatar}" alt=""></div>
+                            <div class="textRight"><p>${data.discussMessages[k].fromUser.userName}</p>
+                                <span>${data.discussMessages[k].fromUser.createTime}</span></div>
+                    </div>
+                    <div class="textbot"><p>${data.discussMessages[k].message}</p></div>
+            </div>
+            `
+                    }
+                 $('.commentText').html(htm);
+                    //console.log(data, 123) 
+                    //localStorage.setItem('discussMessageId',data.discussMessages[k].discussMessageId )  
+                        //回复
+                        var ht = "";
+                        var len=data.discussMessages;
+                        for (var l=0;l<len.length;l++) {
+                            console.log(len[l])
+                            ht += `
+                            <div class="Hf"><input id="value" type="text"><button id="button">确定</button></div>
+                            <p> <span>${len[l].fromUser.userName}:${len[l].toUser.userName}</span> 
+                        ${len[l].message}
+                    </p>`
+                        }
+                 $('.hf').html(ht);
+        }   
+        });
+        //发送评论
+        $("#send").click(function () {
+            var message = $('#Text').val()
+            console.log(message)
+            if (message === "") {
+                console.log("评论不能为空")
+            } else {
+                $.ajax({
+                type: "POST",
+                url: baseURL + "/companyDynamicMessage/pushDiscussMessage",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: { dynamicMessageId: dynamicMessageId,message :message },
+                success: function (data) {
+                    window.location.reload();//刷新页面
+                }
+            })
+            }
+        })
+        })
+         //回复
+       function ent(val) {
+           console.log(1)
+           $(".Hf").show()
+           $("#button").click(function() {
+          var value=$("#value").val()
+           console.log(val)
+           if(val===''){
+               console.log('回复不能为空');      
+           }else{
+            $.ajax({
+                type: "POST",
+                url: baseURL + "/companyDynamicMessage/pushDiscussMessage",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: { dynamicMessageId: dynamicMessageId,message:value,discussMessageId :val},
+                success: function (data) {
+                    console.log(111)
+                    //window.location.reload();//刷新页面
+                }
+            })
+           }
+           
+       })
+
+       }
+    
+    </script>
+</body>
+
+</html>

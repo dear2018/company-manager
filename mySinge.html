@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的报名</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <div class="top">
+            <div><img src="images/lf.png" alt=""></div>
+            <p>我的报名</p>
+        </div>
+        <div class="singPage">
+            <ul>
+               <!--<li>
+                     <div class="singLeft">
+                       <div><img src="images/1.png" alt=""></div> 
+                        <p>哈</p>
+                    </div>
+                    <div class="signRight">
+                       <span>11/12</span>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <script>
+        	$.ajax({
+	 				type:"GET",
+	 				url:baseURL+"/personTalkMsg/getApplyOrder",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+			
+					},
+					success:function(data){
+                        console.log(data);
+                        var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = `  <li>
+                     <div class="singLeft">
+                       <div><img src="${data.data[i].fromCompany.avatar}" alt=""></div> 
+                        <p>${data.data[i].fromCompany.companyName}</p>
+                    </div>
+                    <div class="signRight">
+                       <span>${getDate(data.data[i].fromCompany.createTime)}</span>
+                    </div>
+                </li>`
+                    }
+                $('.singPage ul').html(html);
+                console.log(html,123)		
+				}
+ 				});
+    </script>
+</body>
+</html>

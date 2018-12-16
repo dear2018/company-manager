@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络宣传</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div><a href="my.html"><img src="images/lf.png" alt=""></a></div>
+            <p>网络宣传</p>
+        </div>
+        <div class="pubTop">
+            <div class="tT">
+                <div class="first">
+                    <p>上传视频</p><button onclick="send()">发布</button>
+                </div>
+                <div class="tImg">
+                    <img src="images/pbg.jpg" id="Img" alt="">
+                    <input type="file" onChange="selectImg(this,'Img')">
+                </div>
+            </div>
+        </div>
+        <div class="second">
+                <ul>
+                    <li>
+                        <div class="sTop">
+                            <p>已发布视频</p>
+                            <video src="" controls ></video>
+                           <div><button>删除视频</button></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <script>
+     function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image = replaceSrc;
+                    console.log(Image);
+		        }
+		        reader.readAsDataURL(file.files[0]);
+		       // base64Images.pust(); 
+            }
+    function send() {
+        $.ajax({
+                type: "POST",
+                url: baseURL +"/video/pushVideo",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data:{dynamicMessageId:dynamicMessageId},
+                success: function (data) {
+                      console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = `<li class="interList">
+                                    <div class="totle">
+                                        <div class="interTop">
+                                            <div><img src="${data.data.avatar}" alt=""></div>
+                                            <div>
+                                                <p>${data.data.companyName}</p><span>${data.data.pushTime}</span>
+                                            </div>
+                                        </div>
+                                        <div class="interText">
+                                            <p>${data.data.message}</p>
+                                        </div>
+                                        <div class="interImg">
+                                            <ul>
+                                                <li><img src="${data.data.imagePath}" alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>`
+                    }
+                $('.interPage ul ').html(html);
+                console.log(html,123)
+                },
+
+
+            });
+    }
+    </script>
+</body>
+
+</html>

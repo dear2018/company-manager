@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>聊天页面</title>
+    <link type="text/css" rel="stylesheet" href="css/chat.css" />
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/flexble.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a class="back" href="javascript:history.back()"></a>
+        <h5 class="tit">我的朋友</h5>
+    </header>
+    <div class="message">
+        <!-- <div class="send">
+            <div class="time">07/15 08:06</div>
+            <div class="msg">
+                <img src="images/1.png" alt="" />
+                <p></i>我是从400年前穿越过来的！</p>
+            </div>
+        </div>
+        <div class="show">
+            <div class="time">07/15 08:08</div>
+            <div class="msg">
+                <img src="images/1.png" alt="" />
+                <p>你是在逗我吗，都敏俊兮？</p>
+            </div>
+        </div>-->
+    </div>
+    <div class="footer">
+        <input class=".f-client" type="text" />
+        <p id="send">发送</p>
+    </div>
+    <script>
+        (() => {
+            var faccid;
+            faccid = GetQueryString('mobilePhone') == null ? GetQueryString('jmobile') : GetQueryString('mobilePhone');
+            console.log(faccid);
+            console.log(GetQueryString('jmobile'));
+            console.log(GetQueryString('mobilePhone'));
+            //加好友
+            $.ajax({
+                type: "post",
+                url: baseURL + "/im/addFriend",
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {
+                    "faccid": faccid,
+                    "type": 1
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+            //发送消息
+            $("#send").click(function () {
+                //把聊天框的内容复制给client
+                var client = "'" + $(".f-client").val() + "'";
+                var chat = $(".f-client").val();
+                console.log(chat);
+                //聊天接口
+                $.ajax({
+                    type: "post",
+                    url: baseURL + "/im/sendMsg",
+                    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        "ope": 0,
+                        "to": faccid,
+                        "type": 0,
+                        "body": client
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        var html;
+                        if (data.code == 200) {
+                            html = `
+                         <div class="send">
+                            <div class="time">07/15 08:06</div>
+                            <div class="msg">
+                                <img src="images/1.png" alt="" />
+                                <p>${chat}</p>
+                            </div>
+                        </div> `
+                            console.log($(".f-client").val(""));
+                        }
+                        $(".message").append(html);
+                        //显示最底部的聊天内容
+                        window.scrollTo(0, document.body.scrollHeight);
+                    }
+                })
+            })
+            //历史聊天
+            var clientRecord = () => {
+                $.ajax({
+                    type: "post",
+                    url: baseURL + "/im/querySessionMsg",
+                    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        "to": faccid,
+                    },
+                    async: false,
+                    success: function (data) {
+                        console.log(data)
+                        var msg = data.msg.msgs
+                        var html;
+                        if (msg == "") {
+                        } else {
+                            for (var i = msg.length - 1; i >= 0; i--) {
+                                var a = msg[i].from;
+                                if (msg[i].from == faccid) {
+                                    html = `
+										 <div class="send">
+                                          <div class="time">07/15 08:06</div>
+                                         <div class="msg">
+                                         <img src="images/1.png" alt="" />
+                                         <p>${msg[i].body.msg}</p>
+                                        </div>
+                                        </div>`
+                                    $('.message').append(html);
+                                } else {
+                                    html = `
+                                        <div class="show">
+                                            <div class="time">07/15 08:08</div>
+                                            <div class="msg">
+                                                <img src="images/1.png" alt="" />
+                                                <p>${msg[i].body.msg}</p>
+                                            </div>
+                                        </div>`
+                                    $('.message').append(html);
+                                }
+                            }
+
+                        }
+                       //$(".content").html(html);
+                        //滚到最底部的聊天内容
+                        window.scrollTo(0, document.body.scrollHeight);
+                    }
+                })
+            }
+            	//调用历史聊天
+		 	/*clientRecord();
+            //window.clearInterval(timing);   
+		 	//定时器     setTimeout
+			var timing = window.setInterval(function() {	
+            // window.clearInterval(timing);   
+				$(".content").html("");
+			  	clientRecord(); 
+			}, 2000);*/
+		})();
+
+
+    </script>
+</body>
+
+</html>

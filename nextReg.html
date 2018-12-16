@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司认证</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="nextPage">
+        <div class="nTop">
+            <p>公司认证</p>
+        </div>
+        <div class="nextCot">
+            <ul>
+                <li><p>公司名称</p><input placeholder="请输入公司名称" type="text" id="companyName"></li>
+                <li>
+                    <p>公司头像</p>
+                    <div class="in"><img src="images/qq.png" alt="" id="hImg"><input type="file" name="" id="File"  onChange="select1Img(this,'hImg')"></div>
+                </li>
+                <li><p>运营者真实姓名</p><input placeholder="请输入运营者真实姓名" type="text" id="name"></li>
+                <li><p>运营者身份证号</p><input placeholder="请输入运营者身份证号" type="text" id="number"></li>
+            </ul>
+        </div>
+        <div class="nextBot">
+            <div class="nextTop"><p>营业执照/组织机构代码券</p></div>
+            <div class="nextImg"><img src="images/rzheng.jpg" alt="" id="Img"> <input id="file" type="file" onChange="selectImg(this,'Img')"></div>
+        </div>
+        <diV id="nextFoot">提交审核</diV>
+    </div>
+    <script>
+       //头像
+       function select1Img(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader1 = new FileReader();
+		        reader1.onload = function (evt) {
+		            var replaceSrc1 = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc1);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image1 = replaceSrc1;
+                    console.log(Image1);
+		        }
+		        reader1.readAsDataURL(file.files[0]);
+		       // base64Images.pust();
+	         
+            }
+        //处理图片abse64
+        function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image = replaceSrc;
+                    console.log(Image);
+		        }
+		        reader.readAsDataURL(file.files[0]);
+		       // base64Images.pust();
+	         
+            }
+            $('#nextFoot').click(function(){
+                console.log(1)
+                var companyName =$("#companyName").val()
+                var name=$("#name").val()
+                var number=$("#number").val()
+                console.log(companyName,name,number)
+                $.ajax({
+             type: "POST",
+             url: baseURL+"/company/perfectCompanyMessage",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {companyName:companyName,userName:name,idCardNumber:number,base64Avatar:Image1,base64BusinessLicense:Image}, 
+             success: function(data){
+             console.log(data,111)
+             window.location.href="login.html"
+                      }
+         });
+            })
+         
+    </script>
+</body>
+</html>

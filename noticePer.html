@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会议通知</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+        <div class="layout1">
+                <div class="top">
+                    <div onclick="go()"><img src="images/lf.png" alt=""></a></div>
+                    <p>会议通知</p>
+                </div>
+                <div class="noticePage">
+                    <ul>
+                      <!--<li>
+                          <div class="noticeTop">
+                              <p>123</p><span>4564546</span>                             
+                          </div>
+                          <div class="noticeBot">
+                              <p>4888888885564</p>
+                          </div>
+                      </li>-->
+                    </ul>
+                </div>
+            </div>
+            <script>
+                  (function () {
+                    var companyId = localStorage.getItem('companyId')
+                        console.log(companyId)
+                	$.ajax({
+	 				type:"GET",
+	 				url:baseURL+"/announcement/getAnnouncementByCompanyId/"+companyId,
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+                        companyId:companyId
+					},
+					success:function(data){
+                        console.log(data);
+                        var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = `<li>
+                          <div class="noticeTop">
+                              <p>${data.data[i].title}</p><span>${data.data[i].pushTime}</span>                             
+                          </div>
+                          <div class="noticeBot">
+                              <p>${data.data[i].message}</p>
+                          </div>
+                      </li>`
+                    }
+                $('.noticePage ul').html(html);
+                console.log(html,123)	
+				}
+ 				}); 
+                  })()
+                   
+            </script>
+</body>
+</html>

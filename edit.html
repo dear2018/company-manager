@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑资料</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/resize.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="layout2">
+        <div class="top">
+            <div onclick="go()"><img src="images/lf.png" alt=""></div>
+            <p>编辑资料</p>
+            <span id="done">完成</span>
+        </div>
+        <div class="editTop">
+            <ul>
+                <li class="in"><p>修改头像</p><div class="editImg" ><img id="Eimg" src="images/yuan.jpg" alt=""><input type="file" id="file" onChange="selectImg(this,'Eimg')"></div></li>
+                <li><p>职位</p><input type="text" id="job"></li>
+            </ul>
+            <ul>
+                <li><p>ID:</p><input type="text" id="Id"></li>
+                <li><p>昵称</p><input type="text" id="nickname"></li>
+                <li><p>性别</p><input type="text" id="sex"></li>
+                <li><p>地区</p><input type="text" id="address "></li>
+                <li><p>签名</p><input type="text" id="sigin"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function selectImg(file, id) {
+            if (!file.files || !file.files[0]) {
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                var replaceSrc = evt.target.result;
+                $("#" + id).prop("src", replaceSrc);//显示为图片的形式
+                //将base64的字符串转方到数组里面
+             replaceSrc;
+               up(replaceSrc)
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+      
+        function up(image) {
+            $.ajax({
+                type: "POST",
+                url: baseURL+"/user/uploadAvatar",
+                xhrFields: {
+                            withCredentials: true
+                            },
+                data: {base64Image:image}, 
+                success: function(data){
+                    console.log(data,111)
+                  
+                }
+            }); 
+        }
+       
+      
+            
+         
+             
+         $("#done").click( function () {
+           let position =$("#job").val()
+           let Id=$("#Id").val()
+           let nickName=$("#nickname").val()
+           let sex=$("#sex").val()
+           let address =$("#address").val()
+           let sign=$("#sigin").val()
+            $.ajax({
+             type: "POST",
+             url: baseURL+"/user/updateMessage",
+             xhrFields: {
+				        withCredentials: true
+				    	},
+             data: {address:address,Id:Id,nickName:nickName,position :position ,sex :sex , sign:sign }, 
+             success: function(data){
+             console.log(data,111)
+            window.location.href="myPer.html"
+                      }
+         });
+       })
+    </script>
+</body>
+</html>

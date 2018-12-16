@@ -1,0 +1,520 @@
+#wrap{
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+#wrap .top{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background: #33ccff;
+}
+#wrap .top .topT{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.info {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 6px;
+    border-radius: .25rem;
+    background-color: white;
+    border-width: 0;
+    box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+}
+
+.info p {
+    font-size: 10px;
+}
+#wrap .top .search{
+    position: relative;
+    top: 5px;
+    left: -90%;
+}
+#wrap .top .search img{
+   width:22px;
+   height: 22px;
+}
+#wrap .top .topT{
+    display: flex;
+    justify-content: space-between;
+}
+#wrap .top .topT input{
+    width: 85%;
+    height: 35px;
+    outline: none;
+    border: transparent;
+    text-indent: 50px;
+    border-radius: 30px;
+    margin: 5px 0;
+}
+#wrap .top .topT img{
+    width: 26px;
+    height: 25px;
+    margin: 8px 0;
+}
+.content{
+   width: 100%;
+   background: #fff;
+}
+.content ul {
+    overflow: hidden;
+}
+.content ul li{
+    float: left;
+    box-sizing: border-box;
+    width: 25%;
+    height:90px;
+    text-align: center;
+    margin-top: 20px;
+}
+.content ul li img{
+   width:40px;
+   height: 40px;
+}
+.content ul li p{
+    font-size: 14px;
+    color: #333;
+}
+/*.change{
+ display: none;
+ padding-top: 30px;
+  width: 100%;
+  height: 93vh;
+  background: #f4f4f4;
+}
+.change ul li{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;   
+     width: 90%;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 3px 0px 
+		rgba(4, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #fff;
+}
+.change ul li .left {
+ width: 35%;
+ text-align: center;
+ border-right: 1px solid #f4f4f4;
+ 
+}
+.change ul li .left img{
+    display: block;
+    width:118px;
+    height: 77px;
+}
+.change ul li .left,.change ul li .right{
+    padding: 10px 0;
+    text-align: center;
+    padding: 10px;
+}
+.change ul li .right{
+    width: 60%;
+    text-align: left;
+}
+.change ul li .right p{
+    font-size: 15px;
+    color: #333;
+}
+.change ul li .right span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px ;
+    color:#666; 
+}
+.change ul li .right a{
+    color: #33ccff;
+    font-size: 13px;
+}*/
+/* 法律咨询 */
+.lawPage{
+  display: none;
+  padding-top: 10px;
+  width: 100%;
+  background: #f4f4f4;
+}
+.lawPage .law{
+  padding-top: 10px;
+  width: 100%;
+  background: #f4f4f4;
+}
+.lawPage .lawFoot{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+}
+.lawPage .lawFoot img{
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+.lawPage .law ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto 10px;
+    background-color: #ffffff;
+	box-shadow: 0px 2px 3px 0px 
+		rgba(4, 0, 0, 0.2);
+	border-radius: 20px;
+}
+.lawPage .law ul li .left,.lawPage .law ul li .right {
+    padding: 10px 0;
+}
+.lawPage .law ul li .left{
+    width: 30%;
+    border-right: 1px solid #d2d2d2;
+    text-align: center;
+}
+.lawPage .law ul li .left img{
+    width: 80px;
+    height: 80px;
+}
+.lawPage .law ul li .right {
+  width: 65%;  
+}
+.lawPage .law ul li .right span{
+    display: inline-block;
+    color: #333;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.lawPage .law ul li .right p,.lawPage .law ul li .right i{
+    font-weight: normal;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+
+}
+/* 明细 */
+.ledger{
+    display: none;
+    background: #f4f4f4;
+    height: 93vh;
+    padding-top: 10px;
+}
+.ledger .lePage{
+    background: #fff;
+}
+.lePage .ledgerTop{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: solid 1px #eeeeee;
+    padding-left: 20px;
+}
+.lePage .ledgerBot ul li{
+    border-bottom: 1px solid #eee;
+}
+.lePage .ledgerBot ul li .bT,.lePage .ledgerBot ul li .bB{
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    line-height: 45px;
+    padding:0 20px;
+}
+.lePage .ledgerBot ul li .bT P{
+   color: #999;
+   font-size: 17px;
+}
+.lePage .ledgerBot ul li .bB .bBleft img{
+    width:30px;
+    height: 30px;
+}
+.lePage .ledgerBot ul li .bB .bBleft span{
+    color: #333;
+    font-size: 17px;
+}
+.lePage .Foot{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+}
+.lePage .Foot a{
+    display: inline-block;
+    width:43px;
+    height: 43px;
+    line-height: 43px;
+    border-radius: 50%;
+    color: #fff;
+    background: #33ccff;
+    font-size: 12px;
+    text-align: center;
+}
+/* 公司互动 */
+.interaction{
+  display: none;
+}
+.interaction .interPage{
+    background: #eee;
+}
+.interaction .interPage ul .interList{
+    width: 100%;
+    background: #fff;
+    border-top: 10px solid #f4f4f4; 
+}
+.interaction .interPage ul .interList .totle{
+    width: 90%;
+    margin: 0 auto;
+}
+.interPage ul li .interTop{
+    display: flex;
+    width: 100%;
+    height:65px;
+}
+.interPage ul li .interTop img{
+    width: 40px;
+    height:40px;
+    margin-right: 10px;
+}
+.interPage ul li .interTop p,.interPage ul li .interText p{
+    color: #323333;
+    font-size:17px;
+}
+.interPage ul li .interTop span{
+    color: #666;
+    font-size:12px;
+}
+.interPage ul li .interImg {
+ margin-top: 10px;
+}
+.interPage ul li .interImg ul{
+    display: flex;
+    flex:wrap;
+}
+.interPage ul li .interImg ul li{
+    width: 33%;
+    box-sizing: border-box;
+}
+.interPage ul li .interImg ul li img{
+    display: block;
+    width: 107px;
+    height: 103px;
+}
+.interPage ul li .interFoot{
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    line-height: 40px;
+}
+.interPage ul li .interFoot div { 
+    padding: 5px 0;
+}
+.interPage ul li .interFoot div span{ 
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+.interPage ul li .interFoot .list1 img{
+    width:18px;
+    height:16px;
+}
+.interPage ul li .interFoot .list2 img{
+    width:18px;
+    height:16px;
+}
+.interPage ul li .interFoot .list3 img{
+    width:20px;
+    height:16px;
+}
+.interaction .iFoot{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+  
+}
+.interaction .iFoot img{
+    width: 50px;
+    height: 50px;
+}
+/* 人脉互动 */
+.contact{
+    
+}
+.contact .contactPage{
+    background: #eee;
+}
+.contact .contactPage ul .contactList{
+    width: 100%;
+    background: #fff;
+    border-top: 10px solid #f4f4f4; 
+}
+.contact .contactPage ul .contactList .totle{
+    width: 90%;
+    margin: 0 auto;
+}
+.contactPage ul li .contactTop{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height:65px;
+}
+.contactPage ul li .contactTop .left{
+    display: flex;
+    padding-top:10px ;
+}
+.contactPage ul li .contactTop .right{
+    width:55px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    margin-top:15px ;
+    background: #33ccff;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 20px;
+}
+.contactPage ul li .contactTop img{
+    width: 40px;
+    height:40px;
+    margin-right: 10px;
+}
+.contactPage ul li .contactTop p,.contactPage ul li .contactText p{
+    color: #323333;
+    font-size:17px;
+}
+.contactPage ul li .contactTop span{
+    color: #666;
+    font-size:12px;
+}
+.contactPage ul li .contactImg {
+ margin-top: 10px;
+}
+.contactPage ul li .contactImg ul{
+    display: flex;
+    flex:wrap;
+}
+.contactPage ul li .contactImg ul li{
+    width: 33%;
+    box-sizing: border-box;
+}
+.contactPage ul li .contactImg ul li img{
+    display: block;
+    width: 107px;
+    height: 103px;
+}
+.contactPage ul li .contactFoot{
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    line-height: 40px;
+}
+.contactPage ul li .contactFoot div { 
+    padding: 5px 0;
+}
+.contactPage ul li .contactFoot div span{ 
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+.contactPage ul li .contactFoot .list1 img{
+    width:18px;
+    height:16px;
+}
+.contactPage ul li .contactFoot .list2 img{
+    width:18px;
+    height:16px;
+}
+.contactPage ul li .contactFoot .list3 img{
+    width:20px;
+    height:16px;
+}
+.contact .cFoot{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+  
+}
+.contact .cFoot img{
+    width: 50px;
+    height: 50px;
+}
+/* 行业信息 */
+.infomation{
+    display: none;
+    height: 93vh;
+    width: 100%;
+}
+.infomation .infoPage ul{
+    width: 100%;
+    background: #fff;
+}
+.infomation .infoPage ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 10px auto 0;
+    background-color: #ffffff;
+	box-shadow: 0px 4px 21px 0px 
+		rgba(4, 0, 0, 0.2);
+}
+.infomation .infoPage ul li .ifLeft,.infomation .infoPage ul li .ifRight{
+    margin: 20px 10px;
+}
+.infomation .infoPage ul li .ifLeft{
+    width: 86px;
+    height: 88px;
+}
+.infomation .infoPage ul li .ifLeft img{
+    width: 100%;
+    height: 100%;
+}
+.infomation .infoPage ul li .ifRight{
+    /* 多行超出隐藏。。。 */
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4; /*设置行数*/
+  overflow: hidden;
+    width: 230px;
+    max-height: 88px;
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+}
+.infomation .cFoot{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+  
+}
+.infomation .cFoot img{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+/*底部*/ 
+.foot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:53px;
+    background: #fff;
+ }
+ .foot ul {
+     overflow: hidden;
+ }
+ .foot ul li{
+     float: left;
+     box-sizing: border-box;
+     width: 25%;
+     text-align: center;
+ }
+ .foot ul li img{
+     width: 30px;
+     height: 30px;
+ }
+ .foot ul li p{
+     font-size: 14px;
+     color: #333;
+ }

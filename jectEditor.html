@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项目编辑</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/myList.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body>
+    <div class="wrap1">
+        <div class="top">
+            <div class="left"><a href="myJect.html"><img src="images/lf.png" alt=""></a></div>
+            <p>项目编辑</p>
+            <div class="right"><p id="send">完成</p></div>
+        </div>
+        <div class="total">
+                <div class="addHd">
+                        <img id="Img" src="images/aj.jpg" alt="">
+                    </div>
+                    <div class="addCot">
+                        <ul>
+                            <li>
+                                <p>项目名称:</p>
+                            </li>
+                            <li>
+                                <p>项目负责人:</p>
+                            </li>
+                            <li>
+                                <p>客户业务:</p>
+                            </li>
+                            <li>
+                                <p>业务动态</p>
+                            </li>
+                        </ul>
+                    </div>
+        </div>
+        <div id="addBut"><button>添加下一级业务动态</button></div>
+        <div class="list">
+            <div class="listTop">
+                <p onclick="cancel()">取消</p><p onclick="confirm()">确定</p>
+            </div>
+            <input id="input" type="text">
+        </div>
+    </div> 
+    <script>
+	 		 var companyId = localStorage.getItem('companyId')
+              var customerId = localStorage.getItem('customerId')
+              console.log(companyId,customerId)
+            $.ajax({
+                type: "GET",
+                url: baseURL + "/customer/getCustomerByCompanyId/"+companyId,
+                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			    dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: {companyId:companyId}, 
+                success: function (data) {
+                    console.log(data,123)
+                    var html = "";
+                    for (var i in data.data) {
+                        console.log(data.data[i])
+                        html = ` <div class="addHd">
+            <img id="Img" src="${data.data[i].imagePath}" alt="">
+        </div>
+        <div class="addCot">
+            <ul>
+                <li>
+                    <p>项目名称:${data.data[i].projectName}
+                </li>
+                <li>
+                    <p>项目负责人:${data.data[i].projectManager}
+                </li>
+                <li>
+                    <p>客户业务:${data.data[i].businessMessage}
+                </li>
+                <li>
+                    <p>业务动态</p>${data.data[i].status}
+                </li>
+            </ul>
+        </div>`
+                    }
+                $('.total').html(html);	
+                },
+            });
+            $("#addBut").click(function () {
+                $(".list").show()
+            })
+            function cancel() {
+                $(".list").hide()
+            }
+            function confirm() {
+                let val=$("#input").val()
+                console.log(val)
+                $(".list").hide()
+            }
+
+             $("#send").click(function () {
+                $.ajax({
+	 				type:"POST",
+	 				url:baseURL+"/customer/addStatus",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+                        customerId:customerId,
+                        status:$("#input").val(),
+					},
+					success:function(data){
+                        console.log(data);
+                        window.location.href="myJect.html"
+                    }
+ 				});
+             })
+    </script>
+</body>
+</html>

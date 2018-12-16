@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司简介</title>
+    <link rel="stylesheet" href="css/resize.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="js/tool.js"></script>
+    <script src="js/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="profilePage">
+        <div class="profile1Top">
+            <div><a href="my.html"> <img src="images/lf.png" alt=""></a></div>
+            <p>公司辅导</p>
+            <span id="done">完成</span>
+        </div>
+        <div class="profile1Img">
+               <input type="file" onChange="selectImg(this,'Img')" id="file">
+               <img src="images/yuan.jpg" alt="" id="Img"> 
+        </div>
+        <div class="prefile1Cot">
+            <ul class="list">
+               <!-- <li><p>公司名称</p> <p></p> </li>
+                <li class="in"><p>公司logo</p><div><img class="left" src="images/yuan.jpg" alt=""></div></li>
+                <li><p>认证情况</p><p>已认证</p></li>-->
+            </ul>
+            <ul>
+                <li>
+                    <p>联系电话</p><input id="telephone" placeholder="请输入联系电话" type="text">
+                </li>
+                <li>
+                    <p>邮箱</p><input id="email" placeholder="请输入邮箱" type="text">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>公司主行业</p><input id="companyType" placeholder="请输入内容" type="text">
+                </li>
+                <li>
+                    <p>公司产品/服务/需求</p><input id="companyScope" placeholder="请输入内容" type="text">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>详细地址</p><input id="address" placeholder="请输入详细地址" type="text">
+                </li>
+            </ul>
+        </div>
+        <div class="profile1Foot">
+                <ul>
+                    <li>
+                        <p>公司简介</p>
+                        <textarea name="" placeholder="请输入公司简介" id="introduce" ></textarea>
+                    </li>
+                </ul>
+         </div>   
+    </div>
+    <script>
+             	$.ajax({
+	 				type:"GET",
+	 				url:baseURL+"/company/getCurrentCompanyMessage",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+			
+					},
+					success:function(data){
+                        console.log(data);
+                        var html = "";
+                    for (var i in data.data) {
+                        //认证
+                        var type=""
+                        if(data.data.auth==0){
+                            type="未认证" 
+                        }else{
+                            type="已认证"
+                        }
+                        console.log(data.data[i])
+                        html = `  <li><p>公司名称</p> <p>${data.data.companyName}</p> </li>
+                <li class="in"><p>公司logo</p><div><img class="left" src="${data.data.avatar}" alt=""></div></li>
+                <li><p>认证情况</p><p>${type}</p></li>`
+                    }
+                $('.prefile1Cot .list').html(html);		
+				}
+ 				});
+            //处理图片abse64
+            function selectImg(file,id) {
+				 if (!file.files || !file.files[0]){
+		            return;
+		        }
+		        var reader = new FileReader();
+		        reader.onload = function (evt) {
+		            var replaceSrc = evt.target.result;
+		            //更换cropper的图片
+		           // $('#tailoringImg').cropper('replace', replaceSrc,false);//默认false，适应高度，不失真
+   					$("#"+id).prop("src",replaceSrc);//显示为图片的形式
+	  
+		        	//将base64的字符串转方到数组里面
+                    Image = replaceSrc;
+                    console.log(Image);
+		        }
+		        reader.readAsDataURL(file.files[0]);
+		       // base64Images.pust();
+	         
+            }
+            $("#done").click(function () {
+                console.log(1)
+                var telephone=$("#telephone").val()
+                var email=$("#email").val()
+                var companyScope=$("#companyScope").val()
+                var address=$("#address").val()
+                var introduce=$("#introduce").val()
+                var companyType=$("#companyType").val()
+                console.log(telephone,email,address,introduce)
+                $.ajax({
+	 				type:"POST",
+	 				url:baseURL+"/company/perfectCompanyMessage",
+	 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+					xhrFields: {
+			           withCredentials: true
+			       	},
+			       	data:{
+                        telephone:telephone,
+                        email:email,
+                        companyScope:companyScope,
+                        address:address,
+                        introduce:introduce,
+                        companyType:companyType,
+                        base64Images:Image,
+					},
+					success:function(data){
+                        console.log(data);
+                        window.location.href="my.html"
+                    }
+ 				});
+            })
+        
+    </script>
+</body>
+
+</html>
